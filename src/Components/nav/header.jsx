@@ -7,8 +7,8 @@ function Header() {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="bg-[#343989] text-white px-6 py-4 flex items-center justify-between sm:px-20 sticky top-0 z-50">
-      <img src={aic} alt="Logo" className="h-16 sm:h-20" />
+    <header className="bg-[#343989] text-white px-6 flex items-center justify-between sm:px-20 sticky top-0 z-50">
+      <img src={aic} alt="Logo" className="h-1 sm:h-20" />
 
       <nav className="hidden sm:flex flex-1 justify-center space-x-12">
         <a href="/" className="hover:text-[#EF1C33]">Home</a>
