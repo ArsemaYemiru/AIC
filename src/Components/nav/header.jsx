@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import aic from "../../assets/aic.png"; // Make sure the path is correct based on where Header.jsx is
-
+import aic from "../../assets/aic.png";
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
