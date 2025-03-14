@@ -102,7 +102,7 @@ const Home = () => {
           variants={fadeInUp}
         >
           <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
-            <h1 className="font-bold text-4xl text-[#343989]">Who We are</h1>
+            <h1 className="font-bold text-3xl text-[#343989]">Who We are</h1>
             <p className="mt-5 text-gray-500">Africa Insurance Company (AIC) is a private insurance firm founded in 1994 under Ethiopia’s Insurance Business Proclamation No. 8/1994. With a fully paid-up capital of 30 million Ethiopian Birr, divided into 30,000 shares of 1,000 Birr each, AIC stands as the strongest private insurer in the country. Despite being a young company, its highly qualified personnel ensure efficient service. Guided by its motto, “Committed to Excellence and Quality Services,” AIC upholds high standards in all operations.</p>
           </div>
         </motion.div>
@@ -122,7 +122,7 @@ const Home = () => {
           </div>
         </motion.div>
         <div className="text-[#343989]">
-          <h2 className="text-4xl font-bold mb-10 ml-20">Services We Offer</h2>
+          <h2 className="text-3xl font-bold mb-10 ml-20">Services We Offer</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 ml-64 gap-x-72 gap-y-10">
             {services.map((service, index) => (
               <div key={index} className="flex flex-col items-start text-start">
