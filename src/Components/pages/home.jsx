@@ -6,7 +6,7 @@ import Motor from "../../assets/motor.png";
 import Shipping from "../../assets/shipping.png";
 import Workers from "../../assets/workers.png";
 
-const images = [AIC, Life, Motor, Shipping, Workers];
+const images = [ Life, Motor, Shipping, Workers];
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
