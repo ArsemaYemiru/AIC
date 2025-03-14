@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="bg-[#343989] text-white py-3 px-4 font-playfair border-t border-gray-200">
+        <footer className="bg-[#343989] mt-12 text-white py-3 px-4 font-playfair border-t border-gray-200">
             <div className="container mx-auto flex flex-col md:flex-row justify-between gap-4">
                 {/* Left Section */}
                 <div className="mb-4 md:mb-0 text-center sm:text-left">
