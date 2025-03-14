@@ -1,6 +1,7 @@
 import Header from "../nav/header";
 import Footer from "../nav/footer";
 import Life from "../../assets/life.png";
+import React, { useState } from "react";
 
 
 const boardMembers = [
@@ -28,7 +29,31 @@ const managers = [
   { title: 'ICT Department', name: 'Ato Daimer Negreta', image: Life },
   { title: 'Life & Health Insurance Department', name: 'Ato Admrospad Meresa', image: Life }
 ];
+
+
+const handleToggle = () => {
+  setIsExpanded(!isExpanded); // Toggle between true and false
+};
 function About() {
+
+const truncateText = (text, limit) => {
+  return text.split(" ").length > limit
+    ? text.split(" ").slice(0, limit).join(" ") + "... "
+    : text;
+};
+
+const [isExpanded, setIsExpanded] = useState(false);
+
+const mission = "To provide reliable and quality general and long term insurance products and services in the best interests of our existing and potential customers at a competitive price. These will be attained by deploying highly competent and motivated employees, modern technology and ensuring long term and sustainable growth of profit, productivity and maximizing the overall wealth of its shareholders."
+const vision = "Our goal is to shine as the most preferred, accessible, and market-leading insurance company in the nation, as measured by the satisfaction and loyalty of our customers, the engagement and development of our employees, and the confidence and returns of our shareholders, all while continuously striving for excellence in service delivery and operational efficiency."
+const obj = "To emerge as a leading insurance company in Ethiopia by exceeding client expectations through enhanced customer service and technical excellence, fostering employee professionalism and prosperity, ensuring consistent development and profitability, and contributing to societal well-being."
+
+
+const handleToggle = () => {
+  setIsExpanded(!isExpanded); 
+};
+
+
     return (
         <div>
 <Header />
@@ -57,39 +82,52 @@ The Corporate Motto  <b> Committed to Excellence and Quality Services </b>
       <div className="flex-1 mx-2">
         <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Mission</h2>
         <div className="bg-[#343989]  text-white rounded-lg p-6">
-          <p className="text-center">To provide reliable and quality general and
-             long term insurance products and services in the best 
-             interests of our existing and potential customers at a
-              competitive price. These will be attained by deploying
-               highly competent and motivated employees, modern 
-               technology and ensuring long term and sustainable
-                growth of profit, productivity and maximizing the 
-                overall wealth of its shareholders.
+          <p className="text-center">{isExpanded
+            ? mission
+            : truncateText( mission,
+                50 // Limit to 50 words
+              )}
+          <button
+            onClick={handleToggle}
+            className="hover:underline ml-2"
+          >
+            {isExpanded ? "Show Less" : "Read More"}
+          </button>
           </p>
         </div>
       </div>
 
-      <div className="flex-1 mx-24">
+      <div className="flex-1 mx-12">
         <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Vision</h2>
         <div className="bg-[#343989]  text-white rounded-lg p-6">
-          <p className="text-center">Our goal is to shine as the most 
-            preferred, accessible, and market-leading insurance company
-             in the nation, as measured by the satisfaction and loyalty 
-             of our customers, the engagement and development of our employees,
-              and the confidence and returns of our shareholders,
-             all while continuously striving for excellence in service
-              delivery and operational efficiency.</p>
+          <p className="text-center">
+            {isExpanded
+            ? vision
+            : truncateText( vision,
+                50 // Limit to 50 words
+              )}
+          <button
+            onClick={handleToggle}
+            className="hover:underline ml-2"
+          >
+            {isExpanded ? "Show Less" : "Read More"}
+          </button></p>
         </div>
       </div>
       <div className="flex-1 mx-2">
         <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Objective</h2>
         <div className="bg-[#343989] text-white rounded-lg p-6">
-          <p className="text-center">To emerge as a leading insurance company
-             in Ethiopia by exceeding client expectations through enhanced
-              customer service and technical excellence, fostering 
-              employee professionalism and prosperity, ensuring consistent
-               development and profitability,
-             and contributing to societal well-being.</p>
+          <p className="text-center">{isExpanded
+            ? obj
+            : truncateText( obj,
+                50 // Limit to 50 words
+              )}
+          <button
+            onClick={handleToggle}
+            className="hover:underline ml-2"
+          >
+            {isExpanded ? "Show Less" : "Read More"}
+          </button></p>
         </div>
       </div>
     </div>

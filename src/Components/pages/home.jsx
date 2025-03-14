@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, HeartPulse, Plane, Scale, Bomb, Flame, Ship, Sprout, Database, User, HandCoins, Stethoscope, Car, Settings } from 'lucide-react';
 import Header from "../nav/header";
 import Footer from "../nav/footer"
-import Life from "../../assets/life.png";
+import Life from "../../assets/life.jpg";
 import Motor from "../../assets/motor.png";
-import Shipping from "../../assets/shipping.png";
+import Shipping from "../../assets/shipping.jpg";
 import { motion } from "framer-motion";
 import aic from "../../assets/aic.png";
-import Workers from "../../assets/workers.png";
+import Health from "../../assets/health.jpg";
+import Workers from "../../assets/workers.jpg";
+import Arg from "../../assets/arg.jpeg";
 
-const images = [Life, Motor, Shipping, Workers];
+
+const images = [Life, Motor, Shipping, Workers, Health, Arg];
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
