@@ -129,7 +129,7 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 ml-64 gap-x-72 gap-y-10">
             {services.map((service, index) => (
               <div key={index} className="flex flex-col items-start text-start">
-                <div className="mb-4">{React.cloneElement(service.icon, { size: 70 })}</div>
+                <div className="mb-4">{React.cloneElement(service.icon, { size: 45 })}</div>
                 <p className="text-xl w-64">{service.label}</p>
               </div>
             ))}

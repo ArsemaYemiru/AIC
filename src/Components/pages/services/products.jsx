@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../nav/header";
-import Footer from "../nav/footer";
+import Header from "../../nav/header";
+import Footer from "../../nav/footer";
 import { HeartPulse, Plane, Scale, Bomb, Flame, Ship, Sprout, Database, User, HandCoins, Stethoscope, Car, Settings } from 'lucide-react';
 
-const services = [
+const products = [
     { 
         icon: <HeartPulse />, 
         label: 'Life Insurance',
@@ -127,12 +127,12 @@ const services = [
     }
 ];
 
-function Services() {
+function Products() {
     return (
         <>
             <Header />
             <div className="text-[#343989] px-6">
-                <h2 className="text-4xl font-bold mb-6 text-start mt-8">Services We Offer</h2>
+                <h2 className="text-4xl font-bold mb-6 text-start mt-8"> We Offer</h2>
                 <p className="text-lg text-gray-600 text-start mx-auto mb-12">
                     Explore the range of services we offer and discover how AIC can safeguard your future.
                 </p>
@@ -149,7 +149,7 @@ function Services() {
                         <HeartPulse size={70} />
                         <h4 className="text-xl font-bold mt-4">Life Insurance</h4>
                         <ul className="text-sm mt-2 text-start ml-3 list-disc">
-                            {services[0].details.map((item, index) => (
+                            {products[0].details.map((item, index) => (
                                 <li key={index}>{item}</li>
                             ))}
                         </ul>
@@ -163,12 +163,12 @@ function Services() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
-                    {services.slice(1).map((service, index) => (
+                    {products.slice(1).map((products, index) => (
                         <div key={index} className="bg-[#343989] text-white p-6 rounded-lg flex flex-col items-start">
-                            {React.cloneElement(service.icon, { size: 60 })}
-                            <h4 className="text-lg font-bold mt-4">{service.label}</h4>
+                            {React.cloneElement(products.icon, { size: 60 })}
+                            <h4 className="text-lg font-bold mt-4">{products.label}</h4>
                             <ul className="text-sm mt-2 text-start ml-3 list-disc">
-                                {service.details.map((item, i) => (
+                                {products.details.map((item, i) => (
                                     <li key={i}>{item}</li>
                                 ))}
                             </ul>
@@ -183,5 +183,5 @@ function Services() {
 }
 
 
-export default Services;
+export default Products;
 <div className="h-20"></div>
