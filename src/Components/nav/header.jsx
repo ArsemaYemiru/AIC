@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import aic from "../../assets/aic.png";
+import { NavLink, HoverCard, Text } from '@mantine/core';
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -10,23 +12,66 @@ function Header() {
       <img src={aic} alt="Logo" className="h-1 sm:h-20" />
 
       <nav className="hidden sm:flex items-center justify-between w-full">
-  {/* Centered Navigation Links */}
-  <div className="flex justify-center space-x-12 flex-1">
-    <a href="/" className="hover:text-[#EF1C33]">Home</a>
-    <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-    <a href="/services" className="hover:text-[#EF1C33]">Services</a>
-    <a href="/media" className="hover:text-[#EF1C33]">Media</a>
-    <a href="/announcements" className="hover:text-[#EF1C33]">Announcements</a>
-    <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
-  </div>
+        {/* Centered Navigation Links */}
+        <div className="flex justify-center space-x-12 flex-1">
+          <a href="/" className="hover:text-[#EF1C33]">Home</a>
+          <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
+          <div>
+            <HoverCard width={280} shadow="md">
+              <HoverCard.Target>
+                <Text component='button'>Services</Text>
+              </HoverCard.Target>
 
-  <a
-    href="https://africainsurancesc.com/webmail"
-    className="px-5 py-2 text-center rounded-lg text-[#343989] hover:text-white hover:bg-[#343989] transition-all ml-auto"
-    >
-    Login
-  </a>
-</nav>
+              <HoverCard.Dropdown>
+              <NavLink href="/products" label="Products" />
+              <NavLink href="/claims" label="Claims" />
+        </HoverCard.Dropdown>
+
+              
+            </HoverCard>
+          </div>
+          <div>
+            <HoverCard width={280} shadow="md">
+              <HoverCard.Target>
+                <Text component='button'>Media</Text>
+              </HoverCard.Target>
+
+              <HoverCard.Dropdown>
+              <NavLink href="/news" label="News" />
+              <NavLink href="/events" label="Events" />
+              <NavLink href="/gallery" label="Gallery" />
+              <NavLink href="/reports" label="Annual Reports" />
+        </HoverCard.Dropdown>
+
+              
+            </HoverCard>
+          </div>
+          <div>
+            <HoverCard width={280} shadow="md">
+              <HoverCard.Target>
+                <Text component='button'>Announcements</Text>
+              </HoverCard.Target>
+
+              <HoverCard.Dropdown>
+              <NavLink href="/notice" label="Meeting Notice" />
+              <NavLink href="/vacancies" label="Job Vacancies" />
+              <NavLink href="/bids" label="Bids" />
+        </HoverCard.Dropdown>
+
+              
+            </HoverCard>
+          </div>
+          <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
+
+        </div>
+
+        <a
+          href="https://africainsurancesc.com/webmail"
+          className="px-5 py-2 text-center rounded-lg text-[#343989] hover:text-white hover:bg-[#343989] transition-all ml-auto"
+        >
+          Login
+        </a>
+      </nav>
 
 
       <button onClick={toggleMenu} className="sm:hidden text-white focus:outline-none">
@@ -45,14 +90,15 @@ function Header() {
         <div className="sm:hidden absolute top-16 left-0 w-full bg-[#002855] text-white p-4 flex flex-col space-y-4">
           <a href="/" className="hover:text-[#EF1C33]">Home</a>
           <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-          <a href="/services" className="hover:text-[#EF1C33]">Services</a>
+          <a href="/products" className="hover:text-[#EF1C33]">Services</a>
           <a href="/media" className="hover:text-[#EF1C33]">Media</a>
           <a href="/announcements" className="hover:text-[#EF1C33]">Announcements</a>
           <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
+
         </div>
       )}
 
-      
+
     </header>
   );
 }
