@@ -1,6 +1,6 @@
 import Header from "../nav/header";
 import Footer from "../nav/footer";
-import Life from "../../assets/life.png";
+import Life from "../../assets/life.jpg";
 
 
 const boardMembers = [

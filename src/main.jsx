@@ -8,6 +8,5 @@ import '@mantine/core/styles.css';
 createRoot(document.getElementById('root')).render(
   <MantineProvider>
     <App />
- 
   </MantineProvider>
 )
