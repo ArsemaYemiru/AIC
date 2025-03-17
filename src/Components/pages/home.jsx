@@ -61,7 +61,15 @@ const Home = () => {
     <div className="relative w-full h-screen overflow-x-hidden">
       <Header />
 
-      <div className="relative w-full h-1/2 mt-1">
+      <div className="relative w-full h-3/4 mt-1">
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          background: "linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.4))",
+          zIndex: 10
+        }} className="h-full w-full">
+        </div>
         {images.map((img, index) => (
           <img
             key={index}
@@ -71,14 +79,14 @@ const Home = () => {
               }`}
           />
         ))}
-        <button
+        <button style={{zIndex: 11}}
           onClick={prevSlide}
           className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
         >
           <ChevronLeft size={30} />
         </button>
 
-        <button
+        <button style={{zIndex: 11}}
           onClick={nextSlide}
           className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
         >

@@ -1,68 +1,73 @@
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react'; // Import the ChevronDown icon
 import aic from "../../assets/aic.png";
 import { NavLink, HoverCard, Text } from '@mantine/core';
 
 function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleDropdown = (menu) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
 
   return (
-    <header className=" bg-white text-[#343989] px-6 flex items-center justify-between sm:px-20 sticky top-0 z-50 shadow">
+    <header className="bg-white text-[#343989] px-6 flex items-center justify-between sm:px-20 sticky top-0 z-50 shadow">
       <img src={aic} alt="Logo" className="h-1 sm:h-20" />
 
       <nav className="hidden sm:flex items-center justify-between w-full">
-        {/* Centered Navigation Links */}
         <div className="flex justify-center space-x-12 flex-1">
           <a href="/" className="hover:text-[#EF1C33]">Home</a>
           <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-          <div>
-            <HoverCard width={280} shadow="md">
-              <HoverCard.Target>
-                <Text component='button'>Services</Text>
-              </HoverCard.Target>
-
-              <HoverCard.Dropdown>
-              <NavLink href="/products" label="Products" />
-              <NavLink href="/claims" label="Claims" />
-        </HoverCard.Dropdown>
-
-              
-            </HoverCard>
+          <div className="relative">
+            <button 
+              onClick={() => toggleDropdown('services')} 
+              className="flex items-center space-x-1 hover:text-[#EF1C33]"
+            >
+              <span>Services</span>
+              <ChevronDown size={16} />
+            </button>
+            {openDropdown === 'services' && (
+              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
+                <NavLink href="/products" label="Products" />
+                <NavLink href="/claims" label="Claims" />
+              </div>
+            )}
           </div>
-          <div>
-            <HoverCard width={280} shadow="md">
-              <HoverCard.Target>
-                <Text component='button'>Media</Text>
-              </HoverCard.Target>
-
-              <HoverCard.Dropdown>
-              <NavLink href="/news" label="News" />
-              <NavLink href="/events" label="Events" />
-              <NavLink href="/gallery" label="Gallery" />
-              <NavLink href="/reports" label="Annual Reports" />
-        </HoverCard.Dropdown>
-
-              
-            </HoverCard>
+          <div className="relative">
+            <button 
+              onClick={() => toggleDropdown('media')} 
+              className="flex items-center space-x-1 hover:text-[#EF1C33]"
+            >
+              <span>Media</span>
+              <ChevronDown size={16} />
+            </button>
+            {openDropdown === 'media' && (
+              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
+                <NavLink href="/news" label="News" />
+                <NavLink href="/events" label="Events" />
+                <NavLink href="/gallery" label="Gallery" />
+                <NavLink href="/reports" label="Annual Reports" />
+              </div>
+            )}
           </div>
-          <div>
-            <HoverCard width={280} shadow="md">
-              <HoverCard.Target>
-                <Text component='button'>Announcements</Text>
-              </HoverCard.Target>
-
-              <HoverCard.Dropdown>
-              <NavLink href="/notice" label="Meeting Notice" />
-              <NavLink href="/vacancies" label="Job Vacancies" />
-              <NavLink href="/bids" label="Bids" />
-        </HoverCard.Dropdown>
-
-              
-            </HoverCard>
+          <div className="relative">
+            <button 
+              onClick={() => toggleDropdown('announcements')} 
+              className="flex items-center space-x-1 hover:text-[#EF1C33]"
+            >
+              <span>Announcements</span>
+              <ChevronDown size={16} />
+            </button>
+            {openDropdown === 'announcements' && (
+              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
+                <NavLink href="/notice" label="Meeting Notice" />
+                <NavLink href="/vacancies" label="Job Vacancies" />
+                <NavLink href="/bids" label="Bids" />
+              </div>
+            )}
           </div>
+
           <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
-
         </div>
 
         <a
@@ -72,33 +77,6 @@ function Header() {
           Login
         </a>
       </nav>
-
-
-      <button onClick={toggleMenu} className="sm:hidden text-white focus:outline-none">
-        {isMobileMenuOpen ? (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        )}
-      </button>
-
-      {isMobileMenuOpen && (
-        <div className="sm:hidden absolute top-16 left-0 w-full bg-[#002855] text-white p-4 flex flex-col space-y-4">
-          <a href="/" className="hover:text-[#EF1C33]">Home</a>
-          <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-          <a href="/products" className="hover:text-[#EF1C33]">Services</a>
-          <a href="/media" className="hover:text-[#EF1C33]">Media</a>
-          <a href="/announcements" className="hover:text-[#EF1C33]">Announcements</a>
-          <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
-
-        </div>
-      )}
-
-
     </header>
   );
 }

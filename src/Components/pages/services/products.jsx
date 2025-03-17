@@ -176,7 +176,6 @@ function Products() {
                     ))}
                 </div>
             </div>
-            <div className="h-20"></div>
             <Footer />
         </>
     );
@@ -184,4 +183,3 @@ function Products() {
 
 
 export default Products;
-<div className="h-20"></div>
