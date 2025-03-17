@@ -10,9 +10,10 @@ import aic from "../../assets/aic.png";
 import Health from "../../assets/health.jpg";
 import Workers from "../../assets/workers.jpg";
 import Arg from "../../assets/arg.jpeg";
+import Fly from "../../assets/fly.jpg";
 
 
-const images = [Life, Motor, Shipping, Workers, Health, Arg];
+const images = [Life, Fly, Motor, Shipping, Workers, Health, Arg];
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }

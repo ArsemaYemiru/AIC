@@ -7,8 +7,7 @@ import '@mantine/core/styles.css';
 
 createRoot(document.getElementById('root')).render(
   <MantineProvider>
-  <StrictMode>
     <App />
-  </StrictMode>,
+ 
   </MantineProvider>
 )
