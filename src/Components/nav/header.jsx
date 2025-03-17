@@ -11,12 +11,12 @@ function Header() {
     <header className=" bg-white text-[#343989] px-6 flex items-center justify-between sm:px-20 sticky top-0 z-50 shadow">
       <img src={aic} alt="Logo" className="h-1 sm:h-20" />
 
-      <nav className="hidden sm:flex items-center justify-between w-full">
+      <nav className=" hidden sm:flex items-center justify-between w-full">
         {/* Centered Navigation Links */}
         <div className="flex justify-center space-x-12 flex-1">
           <a href="/" className="hover:text-[#EF1C33]">Home</a>
           <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-          <div>
+          <div className="hover:text-[#EF1C33]">
             <HoverCard width={280} shadow="md">
               <HoverCard.Target>
                 <Text component='button'>Services</Text>
@@ -30,7 +30,7 @@ function Header() {
               
             </HoverCard>
           </div>
-          <div>
+          <div className="hover:text-[#EF1C33]">
             <HoverCard width={280} shadow="md">
               <HoverCard.Target>
                 <Text component='button'>Media</Text>
@@ -42,11 +42,9 @@ function Header() {
               <NavLink href="/gallery" label="Gallery" />
               <NavLink href="/reports" label="Annual Reports" />
         </HoverCard.Dropdown>
-
-              
             </HoverCard>
           </div>
-          <div>
+          <div className="hover:text-[#EF1C33]">
             <HoverCard width={280} shadow="md">
               <HoverCard.Target>
                 <Text component='button'>Announcements</Text>
