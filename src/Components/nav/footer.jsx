@@ -59,7 +59,7 @@ function Footer() {
 
             {/* Bottom Section */}
             <div className="mt-4 border-t border-gray-400 pt-3 text-left text-xs text-gray-300">
-                © {new Date().getFullYear()} African Insurance Company. All rights reserved.
+                 {new Date().getFullYear()} African Insurance Company. All rights reserved.
             </div>
         </footer>
     );
