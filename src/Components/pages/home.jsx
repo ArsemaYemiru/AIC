@@ -13,7 +13,7 @@ import Arg from "../../assets/arg.jpeg";
 import Fly from "../../assets/fly.jpg";
 
 
-const images = [Life, Fly, Motor, Shipping, Workers, Health, Arg];
+const images = [Life, Motor, Shipping, Workers, Health, Arg, Fly];
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
@@ -63,14 +63,16 @@ const Home = () => {
       <Header />
 
       <div className="relative w-full h-3/4 mt-1">
-        <div style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          background: "linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.4))",
-          zIndex: 10
-        }} className="h-full w-full">
-        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.4))",
+            zIndex: 10,
+          }}
+          className="h-full w-full"
+        ></div>
         {images.map((img, index) => (
           <img
             key={index}
@@ -80,14 +82,36 @@ const Home = () => {
               }`}
           />
         ))}
-        <button style={{zIndex: 11}}
+
+        {/* New Insurance Description Box */}
+        <div className="absolute bottom-10 left-10 flex items-center space-x-4 bg-black/0 p-4 rounded-lg text-white">
+          {/* Vertical Line */}
+          <div style={{zIndex: 11}} className="h-36">
+            <div  className="w-[6px] h-full bg-white"></div>
+          </div>
+
+          {/* Text Description */}
+          <p style={{ zIndex: 11 }} className="text-lg font-semibold  max-w-sm">
+            {currentIndex === 0 && "Life Insurance provides financial security for your loved ones in times of need."}
+            {currentIndex === 6 && "Aviation Insurance ensures safety and protection for aircraft operations worldwide."}
+            {currentIndex === 1 && "Motor Insurance covers vehicle damages, liabilities, and third-party claims."}
+            {currentIndex === 2 && "Shipping Insurance safeguards goods against potential losses and damages at sea."}
+            {currentIndex === 3 && "Workmen's Compensation Insurance secures employees' well-being in the workplace."}
+            {currentIndex === 4 && "Health Insurance provides comprehensive medical coverage and emergency assistance."}
+            {currentIndex === 5 && "Agriculture Insurance protects farmers from financial loss due to natural disasters."}
+          </p>
+        </div>
+
+        <button
+          style={{ zIndex: 11 }}
           onClick={prevSlide}
           className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
         >
           <ChevronLeft size={30} />
         </button>
 
-        <button style={{zIndex: 11}}
+        <button
+          style={{ zIndex: 11 }}
           onClick={nextSlide}
           className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
         >
@@ -105,6 +129,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-19 px-3 sm:">
         <motion.div
           className="flex flex-col items-start px-24 py-8"
@@ -184,3 +209,4 @@ const Home = () => {
 
 export default Home;
 
+``
