@@ -56,8 +56,8 @@ const Notice = () => {
           );
         })}
       </div>
-      <Footer />
-    </div>
+     
+    </div> <Footer />
     </div>
   );
 };
