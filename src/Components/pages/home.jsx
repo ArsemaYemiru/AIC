@@ -86,8 +86,8 @@ const Home = () => {
         {/* New Insurance Description Box */}
         <div className="absolute bottom-10 left-10 flex items-center space-x-4 bg-black/0 p-4 rounded-lg text-white">
           {/* Vertical Line */}
-          <div style={{zIndex: 11}} className="h-36">
-            <div  className="w-[6px] h-full bg-white"></div>
+          <div style={{ zIndex: 11 }} className="h-36">
+            <div className="w-[6px] h-full bg-white"></div>
           </div>
 
           {/* Text Description */}
@@ -158,21 +158,24 @@ const Home = () => {
             />
           </div>
         </motion.div>
-        <div className="text-[#343989]">
-          <h2 className="text-3xl font-bold mb-10 ml-20">Services We Offer</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 ml-64 gap-x-72 gap-y-10">
+      </div>
+
+      <div className="text-[#343989] flex flex-col items-center mt-20">
+        <h2 className="text-4xl font-bold mb-12">Services We Offer</h2>
+        <div className="w-full max-w-5xl px-5">
+          <div className="flex flex-wrap items-center justify-center gap-10">
             {services.map((service, index) => (
-              <div key={index} className="flex flex-col items-start text-start">
+              <div key={index} className="flex flex-col items-center text-center">
                 <div className="mb-4">{React.cloneElement(service.icon, { size: 45 })}</div>
-                <p className="text-xl w-64">{service.label}</p>
+                <p className="text-lg w-48">{service.label}</p>
               </div>
             ))}
           </div>
         </div>
-
-
       </div>
-      <div className="flex justify-start">
+
+
+      <div className="flex justify-start mt-36">
         <motion.div
           className=" items-start py-8"
           initial="hidden"

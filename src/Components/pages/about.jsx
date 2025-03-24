@@ -1,7 +1,7 @@
 import Header from "../nav/header";
 import Footer from "../nav/footer";
 import Life from "../../assets/life.jpg";
-
+import { useState } from "react";
 
 const boardMembers = [
   { title: 'Director', name: 'Ato Getachew Tadesse', image: Life },
@@ -28,6 +28,22 @@ const managers = [
   { title: 'ICT Department', name: 'Ato Daimer Negreta', image: Life },
   { title: 'Life & Health Insurance Department', name: 'Ato Admrospad Meresa', image: Life }
 ];
+const ReadMore = ({ text, limit }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleReadMore = () => setIsExpanded(!isExpanded);
+
+  return (
+    <p className="text-center">
+      {isExpanded ? text : text.slice(0, limit) + "..."}
+      <button
+        className="text-[#DECCFE] font-semibold ml-2 underline"
+        onClick={toggleReadMore}
+      >
+        {isExpanded ? "Read Less" : "Read More"}
+      </button>
+    </p>
+  );
+};
 function About() {
   return (
     <div>
@@ -48,50 +64,56 @@ function About() {
           provide effective service to its clients.The Corporate Motto  <b> Committed to Excellence and Quality Services </b>
           has been adapted immediately on commencing its operation, as a guiding principle in all aspects of AIC’s activities.</p>
 
-        <div className="flex justify-between p-4">
-          {/* Vision Section */}
+        <div className="flex flex-col  md:flex-row md:space-x-4">
+          {/* Mission */}
           <div className="flex-1 mx-2">
             <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Mission</h2>
-            <div className="bg-[#343989]  text-white rounded-lg p-6">
-              <p className="text-center">To provide reliable and quality general and
-                long term insurance products and services in the best
-                interests of our existing and potential customers at a
-                competitive price. These will be attained by deploying
-                highly competent and motivated employees, modern
-                technology and ensuring long term and sustainable
-                growth of profit, productivity and maximizing the
-                overall wealth of its shareholders.
-              </p>
+            <div className="bg-[#343989] text-white rounded-lg p-6">
+              <ReadMore
+                text="To provide reliable and quality general and long-term insurance products 
+            and services in the best interests of our existing and potential customers at 
+            a competitive price. These will be attained by deploying highly competent and 
+            motivated employees, modern technology and ensuring long-term and sustainable 
+            growth of profit, productivity and maximizing the overall wealth of its shareholders."
+                limit={200}
+              />
             </div>
           </div>
 
-          <div className="flex-1 mx-24">
+          {/* Vision */}
+          <div className="flex-1 mx-2">
             <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Vision</h2>
-            <div className="bg-[#343989]  text-white rounded-lg p-6">
-              <p className="text-center">Our goal is to shine as the most
-                preferred, accessible, and market-leading insurance company
-                in the nation, as measured by the satisfaction and loyalty
-                of our customers, the engagement and development of our employees,
-                and the confidence and returns of our shareholders,
-                all while continuously striving for excellence in service
-                delivery and operational efficiency.</p>
+            <div className="bg-[#343989] text-white rounded-lg p-6">
+              <ReadMore
+                text="Our goal is to shine as the most preferred, accessible, and market-leading insurance company 
+            in the nation, as measured by the satisfaction and loyalty of our customers, the engagement 
+            and development of our employees, and the confidence and returns of our shareholders, all 
+            while continuously striving for excellence in service delivery and operational efficiency."
+                limit={200}
+              />
             </div>
           </div>
+
+          {/* Objective */}
           <div className="flex-1 mx-2">
             <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Objective</h2>
             <div className="bg-[#343989] text-white rounded-lg p-6">
-              <p className="text-center">To emerge as a leading insurance company
-                in Ethiopia by exceeding client expectations through enhanced
-                customer service and technical excellence, fostering
-                employee professionalism and prosperity, ensuring consistent
-                development and profitability,
-                and contributing to societal well-being.</p>
+              <ReadMore
+                text="To emerge as a leading insurance company in Ethiopia by exceeding client expectations through 
+            enhanced customer service and technical excellence, fostering employee professionalism and prosperity, 
+            ensuring consistent development and profitability, and contributing to societal well-being."
+                limit={200}
+              />
             </div>
           </div>
         </div>
 
 
-        <h1 className="text-3xl mt-8 text-[#343989] font-bold text-center mb-8">Board Of Directors</h1>
+        <div className="flex items-center justify-center mt-6 mb-6">
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                <h3 className="text-2xl font-semibold text-[#343989]">Board of Directors</h3>
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+            </div>
         <div className="container mx-auto py-3">
           <div className="grid grid-cols-1">
             <img
@@ -118,7 +140,11 @@ function About() {
 
 
         {/* MANAGERS */}
-        <h1 className="text-3xl text-[#343989] font-bold text-center mt-12 mb-8">Execetive Management</h1>
+        <div className="flex items-center justify-center mt-6 mb-6">
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                <h3 className="text-2xl font-semibold text-[#343989]">Exective Managers</h3>
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+            </div>
         <div className="container mx-auto py-3">
           <div className="grid grid-cols-1">
             <img
