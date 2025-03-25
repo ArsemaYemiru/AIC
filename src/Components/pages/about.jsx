@@ -75,7 +75,7 @@ function About() {
             a competitive price. These will be attained by deploying highly competent and 
             motivated employees, modern technology and ensuring long-term and sustainable 
             growth of profit, productivity and maximizing the overall wealth of its shareholders."
-                limit={100}
+                limit={200}
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ function About() {
             in the nation, as measured by the satisfaction and loyalty of our customers, the engagement 
             and development of our employees, and the confidence and returns of our shareholders, all 
             while continuously striving for excellence in service delivery and operational efficiency."
-                limit={100}
+                limit={200}
               />
             </div>
           </div>
@@ -102,14 +102,18 @@ function About() {
                 text="To emerge as a leading insurance company in Ethiopia by exceeding client expectations through 
             enhanced customer service and technical excellence, fostering employee professionalism and prosperity, 
             ensuring consistent development and profitability, and contributing to societal well-being."
-                limit={100}
+                limit={200}
               />
             </div>
           </div>
         </div>
 
 
-        <h1 className="text-3xl mt-8 text-[#343989] font-bold text-center mb-8">Board Of Directors</h1>
+        <div className="flex items-center justify-center mt-6 mb-6">
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                <h3 className="text-2xl font-semibold text-[#343989]">Board of Directors</h3>
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+            </div>
         <div className="container mx-auto py-3">
           <div className="grid grid-cols-1">
             <img
@@ -136,7 +140,11 @@ function About() {
 
 
         {/* MANAGERS */}
-        <h1 className="text-3xl text-[#343989] font-bold text-center mt-12 mb-8">Execetive Management</h1>
+        <div className="flex items-center justify-center mt-6 mb-6">
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                <h3 className="text-2xl font-semibold text-[#343989]">Exective Managers</h3>
+                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+            </div>
         <div className="container mx-auto py-3">
           <div className="grid grid-cols-1">
             <img
