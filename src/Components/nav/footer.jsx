@@ -7,7 +7,7 @@ function Footer() {
                 <div className="mb-4 md:mb-0 text-center sm:text-left">
                     <p className="mt-1 text-lg font-bold ">
                         African Insurance Company
-                        <img src="src\assets\africa-removebg-preview (1) 3.png" alt="African Insurance Company" style={{ width: '50%', height: 'auto' }} />
+                        <img src="src\assets\aic.png" alt="African Insurance Company" style={{ width: '50%', height: 'auto' }} />
                     </p>
                     <p className="mt-2 text-sm">
                         Committed to Excellence and Quality service
