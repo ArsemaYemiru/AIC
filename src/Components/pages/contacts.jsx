@@ -55,6 +55,9 @@ function Contacts() {
     return (
         <>
             <Header />
+            <div className="text-3xl mt-8 mb-4 text-[#343989]  px-12 font-size-10 font-bold">
+                <p>Contact Us</p>
+            </div>
             <div className="flex flex-row justify-space-between ml-36 mt-10">
                 <div className="w-full max-w-3xl h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
                     <iframe
@@ -68,24 +71,32 @@ function Contacts() {
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
-                <div className="text-[#343989] flex flex-col justify-center gap-5">
-                    <div className="flex items-center">
-                        <MapPin className="w-4 h-4" />
-                        <p className="text-sm ml-4">Head Office @ Africa Avenue (Bole Road)</p>
-                    </div>
-                    <div className="flex items-center">
-                        <Phone className="w-4 h-4" />
-                        <p className="text-sm ml-4">251 0116637716 / 17 / 18 / 19</p>
-                    </div>
-                    <div className="flex items-center">
-                        <Building2 className="w-4 h-4" />
-                        <p className="text-sm ml-4">12941, Addis Ababa, Ethiopia</p>
-                    </div>
-                    <div className="flex items-center">
-                        <Mail className="w-4 h-4" />
-                        <p className="text-sm ml-4">md@africainsurancesc.com</p>
-                    </div>
-                </div>
+                <div className="flex flex-col items-center gap-20">
+  <div className="text-4xl text-[#343989] font-bold text-center mb-8">
+    Where Quality Service Meets Trusted Protection. Contact Us
+  </div>
+
+  <div className="text-[#343989] flex flex-col text-2xl font-bold gap-5 mx-auto max-w-2xl">
+    <div className="flex items-center">
+      <MapPin className="w-6 h-7" />
+      <p className=" ml-4">Head Office @ Africa Avenue (Bole Road)</p>
+    </div>
+    <div className="flex items-center">
+      <Phone className="w-6 h-7" />
+      <p className=" ml-4">251 0116637716 / 17 / 18 / 19</p>
+    </div>
+    <div className="flex items-center">
+      <Building2 className="w-6 h-7" />
+      <p className=" ml-4">12941, Addis Ababa, Ethiopia</p>
+    </div>
+    <div className="flex items-center">
+      <Mail className="w-6 h-7" />
+      <p className=" ml-4">md@africainsurancesc.com</p>
+    </div>
+  </div>
+</div>
+
+
             </div>
 
             <div className="flex items-center justify-center mt-6 mb-6">

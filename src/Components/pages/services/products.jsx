@@ -131,8 +131,8 @@ function Products() {
     return (
         <>
             <Header />
-            <div className="text-[#343989] px-6">
-                <h2 className="text-4xl font-bold mb-6 text-start mt-8"> We Offer</h2>
+            <div className="text-[#343989] px-12">
+                <h2 className="text-3xl font-bold mb-6 text-start mt-8"> We Offer</h2>
                 <p className="text-lg text-gray-600 text-start mx-auto mb-12">
                     Explore the range of services we offer and discover how AIC can safeguard your future.
                 </p>
@@ -145,7 +145,7 @@ function Products() {
                 </div>
 
                 <div className="flex justify-center mb-10">
-                    <div className="bg-[#343989] text-white p-6 rounded-lg w-80 flex flex-col items-start">
+                    <div className="bg-[#343989] text-white p-10 rounded-lg w-80 flex flex-col items-start">
                         <HeartPulse size={70} />
                         <h4 className="text-xl font-bold mt-4">Life Insurance</h4>
                         <ul className="text-sm mt-2 text-start ml-3 list-disc">
@@ -164,7 +164,7 @@ function Products() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
                     {products.slice(1).map((products, index) => (
-                        <div key={index} className="bg-[#343989] text-white p-6 rounded-lg flex flex-col items-start">
+                        <div key={index} className="bg-[#343989] text-white p-10 rounded-lg flex flex-col items-start">
                             {React.cloneElement(products.icon, { size: 60 })}
                             <h4 className="text-lg font-bold mt-4">{products.label}</h4>
                             <ul className="text-sm mt-2 text-start ml-3 list-disc">
@@ -180,6 +180,5 @@ function Products() {
         </>
     );
 }
-
 
 export default Products;

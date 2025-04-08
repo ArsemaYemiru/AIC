@@ -1,15 +1,8 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react'; // Import the ChevronDown icon
+import { ChevronDown } from 'lucide-react';
 import aic from "../../assets/aic.png";
-import { NavLink, HoverCard, Text } from '@mantine/core';
+import { NavLink } from '@mantine/core';
 
 function Header() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-
-  const toggleDropdown = (menu) => {
-    setOpenDropdown(openDropdown === menu ? null : menu);
-  };
-
   return (
     <header className="bg-white text-[#343989] px-6 flex items-center justify-between sm:px-20 sticky top-0 z-50 shadow">
       <img src={aic} alt="Logo" className="h-1 sm:h-20" />
@@ -18,53 +11,53 @@ function Header() {
         <div className="flex justify-center space-x-12 flex-1">
           <a href="/" className="hover:text-[#EF1C33]">Home</a>
           <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-          <div className="relative">
-            <button 
-              onClick={() => toggleDropdown('services')} 
-              className="flex items-center space-x-1 hover:text-[#EF1C33]"
-            >
+
+          {/* SERVICES */}
+          <div className="relative group">
+            <div className="flex items-center space-x-1 hover:text-[#EF1C33] cursor-pointer">
               <span>Services</span>
-              <ChevronDown size={16} />
-            </button>
-            {openDropdown === 'services' && (
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
-                <NavLink href="/products" label="Products" />
-                <NavLink href="/claims" label="Claims" />
-              </div>
-            )}
+              <ChevronDown
+                size={16}
+                className="transform transition-transform duration-300 group-hover:rotate-180"
+              />
+            </div>
+            <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <NavLink href="/products" label="Products" />
+              <NavLink href="/claims" label="Claims" />
+            </div>
           </div>
-          <div className="relative">
-            <button 
-              onClick={() => toggleDropdown('media')} 
-              className="flex items-center space-x-1 hover:text-[#EF1C33]"
-            >
+
+          {/* MEDIA */}
+          <div className="relative group">
+            <div className="flex items-center space-x-1 hover:text-[#EF1C33] cursor-pointer">
               <span>Media</span>
-              <ChevronDown size={16} />
-            </button>
-            {openDropdown === 'media' && (
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
-                <NavLink href="/news" label="News" />
-                <NavLink href="/events" label="Events" />
-                <NavLink href="/gallery" label="Gallery" />
-                <NavLink href="/reports" label="Annual Reports" />
-              </div>
-            )}
+              <ChevronDown
+                size={16}
+                className="transform transition-transform duration-300 group-hover:rotate-180"
+              />
+            </div>
+            <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <NavLink href="/news" label="News" />
+              <NavLink href="/events" label="Events" />
+              <NavLink href="/gallery" label="Gallery" />
+              <NavLink href="/reports" label="Annual Reports" />
+            </div>
           </div>
-          <div className="relative">
-            <button 
-              onClick={() => toggleDropdown('announcements')} 
-              className="flex items-center space-x-1 hover:text-[#EF1C33]"
-            >
+
+          {/* ANNOUNCEMENTS */}
+          <div className="relative group">
+            <div className="flex items-center space-x-1 hover:text-[#EF1C33] cursor-pointer">
               <span>Announcements</span>
-              <ChevronDown size={16} />
-            </button>
-            {openDropdown === 'announcements' && (
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded">
-                <NavLink href="/notice" label="Meeting Notice" />
-                <NavLink href="/vacancies" label="Job Vacancies" />
-                <NavLink href="/bids" label="Bids" />
-              </div>
-            )}
+              <ChevronDown
+                size={16}
+                className="transform transition-transform duration-300 group-hover:rotate-180"
+              />
+            </div>
+            <div className="absolute left-0 mt-2 w-48 bg-white shadow-md p-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <NavLink href="/notice" label="Meeting Notice" />
+              <NavLink href="/vacancies" label="Job Vacancies" />
+              <NavLink href="/bids" label="Bids" />
+            </div>
           </div>
 
           <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
@@ -77,6 +70,7 @@ function Header() {
           Login
         </a>
       </nav>
+
     </header>
   );
 }

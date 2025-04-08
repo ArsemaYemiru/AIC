@@ -74,14 +74,18 @@ const Home = () => {
           className="h-full w-full"
         ></div>
         {images.map((img, index) => (
-          <img
+          <motion.img
             key={index}
             src={img}
             alt={`Slide ${index}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
-              }`}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={index === currentIndex ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: index === currentIndex ? 1 : 0 }}
           />
         ))}
+
 
         {/* New Insurance Description Box */}
         <div className="absolute bottom-10 left-10 flex items-center space-x-4 bg-black/0 p-4 rounded-lg text-white">
@@ -138,9 +142,11 @@ const Home = () => {
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
-            <h1 className="font-bold text-3xl text-[#343989]">Who We are</h1>
-            <p className="mt-5 text-gray-500">Africa Insurance Company (AIC) is a private insurance firm founded in 1994 under Ethiopia’s Insurance Business Proclamation No. 8/1994. With a fully paid-up capital of 30 million Ethiopian Birr, divided into 30,000 shares of 1,000 Birr each, AIC stands as the strongest private insurer in the country. Despite being a young company, its highly qualified personnel ensure efficient service. Guided by its motto, “Committed to Excellence and Quality Services,” AIC upholds high standards in all operations.</p>
+          <div className="w-full flex justify-center px-4 sm:px-10">
+            <div className="bg-gray-100 p-8 rounded-lg shadow-md text-center max-w-screen-2xl w-full">
+              <h1 className="font-bold text-3xl text-[#343989]">Who We are</h1>
+              <p className="mt-5 text-gray-500">Africa Insurance Company (AIC) is a private insurance firm founded in 1994 under Ethiopia’s Insurance Business Proclamation No. 8/1994. With a fully paid-up capital of 30 million Ethiopian Birr, divided into 30,000 shares of 1,000 Birr each, AIC stands as the strongest private insurer in the country. Despite being a young company, its highly qualified personnel ensure efficient service. Guided by its motto, “Committed to Excellence and Quality Services,” AIC upholds high standards in all operations.</p>
+            </div>
           </div>
         </motion.div>
         <motion.div
@@ -160,18 +166,28 @@ const Home = () => {
         </motion.div>
       </div>
 
-      <div className="text-[#343989] flex flex-col items-center mt-20">
-        <h2 className="text-4xl font-bold mb-12">Services We Offer</h2>
+      <div className="flex items-center justify-center mb-6">
+        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+        <h3 className="text-2xl font-semibold text-[#343989]">Services We Offer</h3>
+        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+      </div>
+      <div className="text-[#343989] flex flex-col items-center mt-16">
         <div className="w-full max-w-5xl px-5">
           <div className="flex flex-wrap items-center justify-center gap-10">
             {services.map((service, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
+              <div
+                key={index}
+                className="group flex flex-col items-center border-4 border-[#343989] text-center rounded-lg p-4 w-52 h-44 
+                   transition-transform transform hover:-translate-y-1 
+                   shadow-md hover:shadow-[#EF1C33]"
+              >
                 <div className="mb-4">{React.cloneElement(service.icon, { size: 45 })}</div>
                 <p className="text-lg w-48">{service.label}</p>
               </div>
             ))}
           </div>
         </div>
+
       </div>
 
 
