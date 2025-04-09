@@ -1,32 +1,61 @@
 import Header from "../nav/header";
-import Footer from "../nav/footer";
-import Life from "../../assets/life.jpg";
+import { Card, Text, Flex, SimpleGrid, Spoiler, Anchor, Image, Title, Grid, Container } from '@mantine/core';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import Abdurahman from "../../assets/BOD/Abdurahman.png";
+import alemu from "../../assets/BOD/alemu.png";
+import birhanu from "../../assets/BOD/birhanu.png";
+import enewey from "../../assets/BOD/enewey.png";
+import Fikadesilassie from "../../assets/BOD/Fikadesilassie.png";
+import firdos from "../../assets/BOD/firdos.png";
+import genet from "../../assets/BOD/genet.png";
+import getachew from "../../assets/BOD/getachew.png";
+import mekdes from "../../assets/BOD/mekdes.png";
+import yishak from "../../assets/BOD/yishak.png";
+import alemseged from "../../assets/EM/alemseged.png";
+import bedilu from "../../assets/EM/bedilu.png";
+import daniel from "../../assets/EM/daniel.png";
+import dejene from "../../assets/EM/dejene.png";
+import demis from "../../assets/EM/demis.png";
+import estifanos from "../../assets/EM/estifanos.png";
+import kassahun from "../../assets/EM/kassahun.png";
+import kiros from "../../assets/EM/kiros.png";
+import mezmur from "../../assets/EM/mezmur.png";
+import michael from "../../assets/EM/michael.png";
+import tesema from "../../assets/EM/tesema.png";
+import tesfaye from "../../assets/EM/tesfaye.png";
+import yohannes from "../../assets/EM/yohannes.png";
 import { useState } from "react";
+import Footer from "../nav/footer";
+import { title } from "framer-motion/client";
+
 
 const boardMembers = [
-  { title: 'Director', name: 'Ato Getachew Tadesse', image: Life },
-  { title: 'Director', name: 'Ato Abdurahman Abdulbaki', image: Life },
-  { title: 'Director', name: 'Ato Birhanu Tadesse', image: Life },
-  { title: 'Director', name: 'W/ro Mekdes G/Tsadik', image: Life },
-  { title: 'Director', name: 'W/ro Enewey G/Medhin', image: Life },
-  { title: 'Director', name: 'Ato Fikadesilassie Beza', image: Life },
-  { title: 'Director', name: 'W/ro Genet Argaw', image: Life },
-  { title: 'Director', name: 'W/ro Firdosa Adus', image: Life },
-  { title: "Company's Secretary", name: 'Ato Yisak Kebede', image: Life },
+  { title: 'Vice Chairman', name: 'Ato Alemu Tadesse', image: alemu },
+  { title: 'Director', name: 'Ato Getachew Tadesse', image: getachew },
+  { title: 'Director', name: 'Ato Abdurahman Abdulbaki', image: Abdurahman },
+  { title: 'Director', name: 'Ato Birhanu Tadesse', image: birhanu },
+  { title: 'Director', name: 'W/ro Mekdes G/Tsadik', image: mekdes },
+  { title: 'Director', name: 'W/ro Enewey G/Medhin', image: enewey },
+  { title: 'Director', name: 'Ato Fikadesilassie Beza', image: Fikadesilassie },
+  { title: 'Director', name: 'W/ro Genet Argaw', image: genet },
+  { title: 'Director', name: 'W/ro Firdosa Adus', image: firdos },
+  { title: "Company's Secretary", name: 'Ato Yisak Kebede', image: yishak },
 ];
 
 const managers = [
-  { title: 'Deputy Managing Director', name: 'Ato Masahuri Bogashaw', image: Life },
-  { title: 'HBM & Property Administration Department', name: 'Ato Tesfaye Orma', image: Life },
-  { title: 'Reinsurance Service', name: 'Ato Masahuri Hawaiz', image: Life },
-  { title: 'Engineering Service', name: 'Ato Estrilence Emiru', image: Life },
-  { title: 'Legal Service', name: 'Ato Michael Naefin', image: Life },
-  { title: 'Internal Audit Department', name: 'Ato Tesfaro Hofidu', image: Life },
-  { title: 'Risk Management & AM-CFT Compliance Department', name: 'Ato Bieilli J.Netomeen', image: Life },
-  { title: 'Claims Management Department', name: 'Ato Volhanves Hallu', image: Life },
-  { title: 'Finance and Investment Department', name: 'Ato Damit Tewaldelreham', image: Life },
-  { title: 'ICT Department', name: 'Ato Daimer Negreta', image: Life },
-  { title: 'Life & Health Insurance Department', name: 'Ato Admrospad Meresa', image: Life }
+  { title: 'Managing Director - CEO', name: 'Ato Kiros Jiranie', image: kiros },
+  { title: 'Deputy Managing Director', name: 'Ato Kassahun Begashaw', image: kassahun },
+  { title: 'HRM & Property Administration Department', name: 'Ato Tesfaye Girma', image: tesfaye },
+  { title: 'Reinsurance Service', name: 'Ato Mezmur Hawaz', image: mezmur },
+  { title: 'Engineering Service', name: 'Ato Estifanos Emiru', image: estifanos },
+  { title: 'Legal Service', name: 'Ato Michael Mesfin', image: michael },
+  { title: 'Internal Audit Department', name: 'Ato Tesema Hidetu', image: tesema },
+  { title: 'Risk Management & AM-CFT Compliance Department', name: 'Ato Bedilu Mekonnen', image: bedilu },
+  { title: 'Claims Management Department', name: 'Ato Yohannes Hailu', image: yohannes },
+  { title: 'Finance and Investment Department', name: 'Ato Daniel Teweldebrehan', image: daniel },
+  { title: 'ICT Department', name: 'Ato Dejene Megersa', image: dejene },
+  { title: 'U/W & Branch Operations Department', name: 'Ato Demis Abera', image: demis },
+  { title: 'Life & Health Insurance Department', name: 'Ato Alemseged Meresa', image: alemseged }
 ];
 const ReadMore = ({ text, limit }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -59,145 +88,297 @@ function About() {
           The capital is divided into 30,000 ordinary shares, each with a par value of 1000
           Ethiopian Birr. The capital base AIC utilizes makes it the Strongest Private Insurance Company in the Country.</p>
 
-        <p className="text-lg text-[#373535] mb-4">Although AIC is a Young Company, its personnel who are implementing the day-to-day activities
+        <p className="text-lg  text-[#373535] mb-4">Although AIC is a Young Company, its personnel who are implementing the day-to-day activities
           of the company are highly qualified in their particular job assignments which has enabled it to
           provide effective service to its clients.The Corporate Motto  <b> Committed to Excellence and Quality Services </b>
           has been adapted immediately on commencing its operation, as a guiding principle in all aspects of AIC’s activities.</p>
 
-        <div className="flex flex-col  md:flex-row md:space-x-4">
+        <div className="flex  mt-20 mb-20 md:flex-row md:space-x-4">
           {/* Mission */}
           <div className="flex-1 mx-2">
-            <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Mission</h2>
-            <div className="bg-[#343989] text-white rounded-lg p-6">
-              <ReadMore
-                text="To provide reliable and quality general and long-term insurance products 
-            and services in the best interests of our existing and potential customers at 
-            a competitive price. These will be attained by deploying highly competent and 
-            motivated employees, modern technology and ensuring long-term and sustainable 
-            growth of profit, productivity and maximizing the overall wealth of its shareholders."
-                limit={200}
-              />
-            </div>
+            <Card
+              withBorder
+              shadow="sm"
+              radius="sm"
+              padding="xl"
+              style={{
+                borderLeftColor: "#343989",
+                borderLeftWidth: 5,
+              }}
+            >
+              <Flex gap={10} align="center">
+                <Text fz="xl" fw={500} color="#343989">
+                  Mission
+                </Text>
+              </Flex>
+              <Spoiler
+                maxHeight={100}
+                showLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">more </Anchor>
+                    <ChevronDown size={10} />
+                  </Flex>
+                }
+                hideLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">less </Anchor>
+                    <ChevronUp size={10} />
+                  </Flex>
+                }
+              >
+                <Text fz="lg" c="dimmed" mt="sm">
+                  To provide reliable and quality general and long-term insurance products and services in the best interests of our existing and potential customers at a competitive price. These will be attained by deploying highly competent and motivated employees, modern technology, and ensuring long-term and sustainable growth of profit, productivity, and maximizing the overall wealth of its shareholders.
+                </Text>
+              </Spoiler>
+            </Card>
           </div>
 
           {/* Vision */}
           <div className="flex-1 mx-2">
-            <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Vision</h2>
-            <div className="bg-[#343989] text-white rounded-lg p-6">
-              <ReadMore
-                text="Our goal is to shine as the most preferred, accessible, and market-leading insurance company 
-            in the nation, as measured by the satisfaction and loyalty of our customers, the engagement 
-            and development of our employees, and the confidence and returns of our shareholders, all 
-            while continuously striving for excellence in service delivery and operational efficiency."
-                limit={200}
-              />
-            </div>
+            <Card
+              withBorder
+              shadow="sm"
+              radius="sm"
+              padding="xl"
+              style={{
+                borderLeftColor: "#343989",
+                borderLeftWidth: 5,
+              }}
+            >
+              <Flex gap={10} align="center">
+                <Text fz="xl" fw={500} color="#343989">
+                  Vision
+                </Text>
+              </Flex>
+              <Spoiler
+                maxHeight={100}
+                showLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">more </Anchor>
+                    <ChevronDown size={10} />
+                  </Flex>
+                }
+                hideLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">less </Anchor>
+                    <ChevronUp size={10} />
+                  </Flex>
+                }
+              >
+                <Text fz="lg" c="dimmed" mt="sm">
+                  Our goal is to shine as the most preferred, accessible, and market-leading insurance company in the nation, as measured by the satisfaction and loyalty of our customers, the engagement and development of our employees, and the confidence and returns of our shareholders, all while continuously striving for excellence in service delivery and operational efficiency.
+                </Text>
+              </Spoiler>
+            </Card>
           </div>
 
           {/* Objective */}
           <div className="flex-1 mx-2">
-            <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Objective</h2>
-            <div className="bg-[#343989] text-white rounded-lg p-6">
-              <ReadMore
-                text="To emerge as a leading insurance company in Ethiopia by exceeding client expectations through 
-            enhanced customer service and technical excellence, fostering employee professionalism and prosperity, 
-            ensuring consistent development and profitability, and contributing to societal well-being."
-                limit={200}
-              />
-            </div>
+            <Card
+              withBorder
+              shadow="sm"
+              radius="sm"
+              padding="xl"
+              style={{
+                borderLeftColor: "#343989",
+                borderLeftWidth: 5,
+              }}
+            >
+              <Flex gap={10} align="center">
+                <Text fz="xl" fw={500} color="#343989">
+                  Objective
+                </Text>
+              </Flex>
+              <Spoiler
+                maxHeight={100}
+                showLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">more </Anchor>
+                    <ChevronDown size={10} />
+                  </Flex>
+                }
+                hideLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">less </Anchor>
+                    <ChevronUp size={10} />
+                  </Flex>
+                }
+              >
+                <Text fz="lg" c="dimmed" mt="sm">
+                  To emerge as a leading insurance company in Ethiopia by exceeding client expectations through enhanced customer service and technical excellence, fostering employee professionalism and prosperity, ensuring consistent development and profitability, and contributing to societal well-being.
+                </Text>
+              </Spoiler>
+            </Card>
           </div>
         </div>
 
 
         <div className="flex items-center justify-center mt-6 mb-6">
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-                <h3 className="text-2xl font-semibold text-[#343989]">Board of Directors</h3>
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-            </div>
-        <div className="container mx-auto py-3">
-          <div className="grid grid-cols-1">
-            <img
-              src={Life}
-              className="w-32 h-32 mx-auto rounded-full mb-4 text-center"
-            />
-            <h2 className=" text-[#343989] text-center text-xl font-semibold">Vice Chairman</h2>
-            <p className="text-center text-gray-600 mb-8">Ato Alemu Berhe</p>
-          </div>
-          <div className="grid text-[#343989] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+          <h3 className="text-2xl font-semibold text-[#343989]">Board of Directors</h3>
+          <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+        </div>
+        <Flex py="md" justify={'center'}>
+          <SimpleGrid
+            cols={5}
+            spacing={50}
+            breakpoints={[
+              { maxWidth: 'md', cols: 2, spacing: 30 },
+              { maxWidth: 'sm', cols: 1, spacing: 20 },
+            ]}
+          >
             {boardMembers.map((member, index) => (
-              <div key={index} className="text-center">
-                <img
+              <Card
+                
+                key={index}
+                radius="lg"
+                withBorder
+                padding="lg"
+                ta="center"
+                style={{ width: '250px' }}
+                hover={{ shadow: '#EF1C33' }}
+              >
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-32 h-32 mx-auto rounded-full mb-4"
+                  width={120}
+                  height={120}
+                  mx="auto"
+                  radius="xl"
+                  mb="md"
+                  style={{ objectFit: 'cover' }}
                 />
-                <h2 className="text-xl font-semibold">{member.title}</h2>
-                <p className="text-gray-600">{member.name}</p>
-              </div>
+                <Title order={4} style={{ color: '#343989' }}>
+                  {member.title}
+                </Title>
+                <Text size="md" color="dimmed">
+                  {member.name}
+                </Text>
+              </Card>
             ))}
-          </div>
-        </div>
+          </SimpleGrid>
+        </Flex>
 
 
         {/* MANAGERS */}
         <div className="flex items-center justify-center mt-6 mb-6">
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-                <h3 className="text-2xl font-semibold text-[#343989]">Exective Managers</h3>
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-            </div>
-        <div className="container mx-auto py-3">
-          <div className="grid grid-cols-1">
-            <img
-              src={Life}
-              className="w-32 h-32 mx-auto rounded-full mb-4 text-center"
-            />
-            <h2 className=" text-[#343989] text-center text-xl font-semibold">Managing Director CEO</h2>
-            <p className="text-center text-gray-600 mb-8">Ato Kinoa Hamiro</p>
-          </div>
-          <div className="grid text-[#343989] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+          <h3 className="text-2xl font-semibold text-[#343989]">Exective Managers</h3>
+          <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+        </div>
+        <Flex py="md" justify={'center'}>
+          <SimpleGrid
+            cols={5}
+            spacing={50}
+            breakpoints={[
+              { maxWidth: 'md', cols: 2, spacing: 30 },
+              { maxWidth: 'sm', cols: 1, spacing: 20 },
+            ]}
+          >
             {managers.map((member, index) => (
-              <div key={index} className="text-center">
-                <img
+              <Card
+                key={index}
+                shadow="md"
+                radius="lg"
+                withBorder
+                padding="lg"
+                ta="center"
+                style={{ width: '250px' }}
+              >
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-32 h-32 mx-auto rounded-full mb-4"
+                  width={120}
+                  height={120}
+                  mx="auto"
+                  radius="xl"
+                  mb="md"
+                  style={{ objectFit: 'cover' }}
                 />
-                <h2 className="text-xl font-semibold">{member.title}</h2>
-                <p className="text-gray-600">{member.name}</p>
-              </div>
+                <Title order={4} style={{ color: '#343989' }}>
+                  {member.title}
+                </Title>
+                <Text size="md" color="dimmed">
+                  {member.name}
+                </Text>
+              </Card>
             ))}
-          </div>
-        </div>
+          </SimpleGrid>
+        </Flex>
 
-
-        <div className="flex justify-between p-4 mt-8">
-          {/* Vision Section */}
-          <div className="flex-1 mx-2 mr-12">
-            <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">Core Values</h2>
-            <div className="bg-[#343989]  text-white rounded-lg p-6">
-              <p className="text-center">Operating in accordance with a set
-                of core values and beliefs including the provision of services
-                with speed, efficiency and assurance, harmony and co-operating,
-                courtesy and humanity with an all-around professionalism both
-                to its clients and to its employees. These values are the
-                corporate culture under which the Board of Directors,
-                the Management and Employees of AIC are operating.
-              </p>
-            </div>
-          </div>
-
+        <div className="flex  mt-20 mb-20 md:flex-row md:space-x-4">
           <div className="flex-1 mx-2">
-            <h2 className="text-center text-2xl text-[#343989] font-bold mb-2">AIC Main Goals</h2>
-            <div className="bg-[#343989] text-white rounded-lg p-6">
-              <p className="text-center">The main goals of AIC are to
-                engage in life insurance, annuities, pensions,
-                permanent health insurance, personal accident
-                insurance, sickness insurance, general insurance,
-                and reinsurance; to invest in real estate, mortgage
-                bonds, shares, and other investment opportunities;
-                and to pursue any activities
-                that may enhance its business objectives.</p>
-            </div>
+            <Card
+              withBorder
+              shadow="sm"
+              radius="sm"
+              padding="xl"
+              style={{
+                borderLeftColor: "#343989",
+                borderLeftWidth: 5,
+              }}
+            >
+              <Flex gap={10} align="center">
+                <Text fz="xl" fw={500} color="#343989">
+                  Core Values
+                </Text>
+              </Flex>
+              <Spoiler
+                maxHeight={100}
+                showLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">more </Anchor>
+                    <ChevronDown size={10} />
+                  </Flex>
+                }
+                hideLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">less </Anchor>
+                    <ChevronUp size={10} />
+                  </Flex>
+                }
+              >
+                <Text fz="lg" c="dimmed" mt="sm">
+                  Operating in accordance with a set of core values and beliefs including the provision of services with speed, efficiency and assurance, harmony and co-operating, courtesy and humanity with an all-around professionalism both to its clients and to its employees. These values are the corporate culture under which the Board of Directors, the Management and Employees of AIC are operating.
+                </Text>
+              </Spoiler>
+            </Card>
+          </div>
+          <div className="flex-1 mx-2">
+            <Card
+              withBorder
+              shadow="sm"
+              radius="sm"
+              padding="xl"
+              style={{
+                borderLeftColor: "#343989",
+                borderLeftWidth: 5,
+              }}
+            >
+              <Flex gap={10} align="center">
+                <Text fz="xl" fw={500} color="#343989">
+                  AIC Main Goals
+                </Text>
+              </Flex>
+              <Spoiler
+                maxHeight={100}
+                showLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">more </Anchor>
+                    <ChevronDown size={10} />
+                  </Flex>
+                }
+                hideLabel={
+                  <Flex mt="sm" align="center" justify="flex-end" gap={5}>
+                    <Anchor size="sm">less </Anchor>
+                    <ChevronUp size={10} />
+                  </Flex>
+                }
+              >
+                <Text fz="lg" c="dimmed" mt="sm">
+                  The main goals of AIC are to engage in life insurance, annuities, pensions, permanent health insurance, personal accident insurance, sickness insurance, general insurance, and reinsurance; to invest in real estate, mortgage bonds, shares, and other investment opportunities; and to pursue any activities that may enhance its business objectives.                </Text>
+              </Spoiler>
+            </Card>
           </div>
         </div>
       </div>
