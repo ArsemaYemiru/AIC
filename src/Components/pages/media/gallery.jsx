@@ -3,13 +3,13 @@ import Header from '../../nav/header';
 import Footer from '../../nav/footer';
 
 const Gallery = () => {
-  const [post, setPost] = useState(null);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [images, setImages] = useState([]); 
+  const [expandedPosts, setExpandedPosts] = useState({}); // Track expanded/collapsed state
 
   useEffect(() => {
-    fetch('http://localhost/mywordpress/wp-json/wp/v2/posts/8?_embed')
+    fetch('http://localhost/mywordpress/wp-json/wp/v2/posts?categories=8&_embed')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -17,8 +17,7 @@ const Gallery = () => {
         return response.json();
       })
       .then((data) => {
-        setPost(data);
-        extractImagesFromPost(data); // Extract images from the post
+        setPosts(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -27,13 +26,12 @@ const Gallery = () => {
       });
   }, []);
 
-  // Extract image URLs from the post content
-  const extractImagesFromPost = (post) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(post.content.rendered, 'text/html');
-    const imgElements = doc.querySelectorAll('img'); // Find all <img> tags
-    const imageUrls = Array.from(imgElements).map((img) => img.src); // Extract src attributes
-    setImages(imageUrls);
+  // Toggle expanded state for a post
+  const toggleExpand = (postId) => {
+    setExpandedPosts((prev) => ({
+      ...prev,
+      [postId]: !prev[postId], // Toggle the state for the specific post
+    }));
   };
 
   if (loading)
@@ -42,7 +40,7 @@ const Gallery = () => {
         <Header />
         <div className="ml-12 mr-12">
           <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
-            <p>Loading Gallery...</p>
+            <p>Gallery is Loading</p>
           </div>
         </div>
         <Footer />
@@ -62,13 +60,13 @@ const Gallery = () => {
       </div>
     );
 
-  if (!post)
+  if (!posts || posts.length === 0)
     return (
       <div>
         <Header />
         <div className="ml-12 mr-12">
           <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
-            <p>No Gallery Found</p>
+            <p>No Gallery Yet</p>
           </div>
         </div>
         <Footer />
@@ -80,21 +78,34 @@ const Gallery = () => {
       <Header />
       <div className="flex-grow ml-12 mr-12">
         <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
-          <p>{post.title.rendered}</p>
+          <p>Gallery</p>
         </div>
 
         <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {images.map((imageUrl, index) => (
-              <div key={index} className="relative overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src={imageUrl}
-                  alt={`Gallery Image ${index + 1}`}
-                  className="w-full h-auto object-cover"
+          {posts.map((post) => {
+            const isExpanded = expandedPosts[post.id]; // Check if the post is expanded
+
+            return (
+              <div
+                key={post.id}
+                className="mb-6 p-6 border border-gray-300 rounded-lg shadow-md bg-white"
+              >
+                <h2 className="text-2xl font-bold text-[#343989] mb-4">
+                  {post.title.rendered}
+                </h2>
+                <div
+                  className={`text-gray-700 mb-4 ${isExpanded ? '' : 'line-clamp-3'}`} // Collapse content if not expanded
+                  dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                 />
+                <button
+                  onClick={() => toggleExpand(post.id)}
+                  className="text-blue-500 hover:text-blue-700 font-semibold"
+                >
+                  {isExpanded ? 'Less' : 'More'}
+                </button>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
       <Footer />
