@@ -1,12 +1,22 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TO/DO
 
-Currently, two official plugins are available:
+AESTHETICS
+-fix home screen images to be smoother and not pop out
+-expand the who we are to the right to take up more space?
+- services/products is not the same theme, padding wise, 
+-contacts doesnt have a contacts heading
+-contacts info next to map can be bolder, they look really small
+-contacts overflow is happing with the branches
+-font change
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-let the drop down in the header go away if you click outside of it
 
-## Expanding the ESLint configuration
+PAGES
+-claims
+-downloads
+-gallery doesnt work with wordpress
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+MOBILE
+-everything
