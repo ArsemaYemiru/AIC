@@ -62,7 +62,7 @@ const Home = () => {
     <div className="relative w-full h-screen overflow-x-hidden">
       <Header />
 
-      <div className="relative w-full h-3/4 mt-1">
+      <div className="relative w-full h-3/4 ">
         <div
           style={{
             position: "absolute",
