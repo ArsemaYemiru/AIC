@@ -20,10 +20,10 @@ function Footer() {
                     <nav className="flex flex-col space-y-2 text-sm">
                         <a href="/" className="hover:text-[#EF1C33]">Home</a>
                         <a href="/about" className="hover:text-[#EF1C33]">About Us</a>
-                        <a href="/media" className="hover:text-[#EF1C33]">Media</a>
-                        <a href="/announcements" className="hover:text-[#EF1C33]">Announcements</a>
-                        <a href="/contact" className="hover:text-[#EF1C33]">Contact Us</a>
-                        <a href="/download" className="hover:text-[#EF1C33]">Download</a>
+                        <a href="/gallery" className="hover:text-[#EF1C33]">Gallery</a>
+                        <a href="/vacancies" className="hover:text-[#EF1C33]">Job Vacancies</a>
+                        <a href="/contacts" className="hover:text-[#EF1C33]">Contact Us</a>
+                        <a href="/claims" className="hover:text-[#EF1C33]">Download</a>
                     </nav>
                 </div>
 
