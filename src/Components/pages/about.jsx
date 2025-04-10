@@ -1,5 +1,5 @@
 import Header from "../nav/header";
-import { Card, Text, Flex, SimpleGrid, Spoiler, Anchor, Image, Title, Grid, Container } from '@mantine/core';
+import { Card, Text, Flex, SimpleGrid, Spoiler, Anchor, Image, Title, AspectRatio,Grid, Container } from '@mantine/core';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import Abdurahman from "../../assets/BOD/Abdurahman.png";
 import alemu from "../../assets/BOD/alemu.png";
@@ -229,7 +229,7 @@ function About() {
           >
             {boardMembers.map((member, index) => (
               <Card
-                
+
                 key={index}
                 radius="lg"
                 withBorder
@@ -238,16 +238,17 @@ function About() {
                 style={{ width: '250px' }}
                 hover={{ shadow: '#EF1C33' }}
               >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={120}
-                  height={120}
-                  mx="auto"
-                  radius="xl"
-                  mb="md"
-                  style={{ objectFit: 'cover' }}
-                />
+                <AspectRatio ratio={4/5} miw={200} mx="auto">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    mx="auto"
+                    radius="md"
+                    mb="md"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </AspectRatio>
+
                 <Title order={4} style={{ color: '#343989' }}>
                   {member.title}
                 </Title>
@@ -285,16 +286,16 @@ function About() {
                 ta="center"
                 style={{ width: '250px' }}
               >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={120}
-                  height={120}
-                  mx="auto"
-                  radius="xl"
-                  mb="md"
-                  style={{ objectFit: 'cover' }}
-                />
+                <AspectRatio ratio={4/5} miw={200} mx="auto">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    mx="auto"
+                    radius="md"
+                    mb="md"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </AspectRatio>
                 <Title order={4} style={{ color: '#343989' }}>
                   {member.title}
                 </Title>
