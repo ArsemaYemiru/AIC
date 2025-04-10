@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Card, Flex, SimpleGrid } from "@mantine/core";
 import { ChevronLeft, ChevronRight, HeartPulse, Plane, Scale, Bomb, Flame, Ship, Sprout, Database, User, HandCoins, Stethoscope, Car, Settings } from 'lucide-react';
 import Header from "../nav/header";
 import Footer from "../nav/footer"
@@ -134,20 +135,22 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-19 px-3 sm:">
+      <Flex justify="space-between">
         <motion.div
-          className="flex flex-col items-start px-24 py-8"
+          className="pl-36 py-8 w-3/4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
-          <div className="w-full flex justify-center px-4 sm:px-10">
-            <div className="bg-gray-100 p-8 rounded-lg shadow-md text-center max-w-screen-2xl w-full">
+          <Card  p="sm" radius="sm" className="w-full flex justify-center px-4 sm:px-20 md:px-36 lg:px-48">
+            <Card.Section inheritPadding>
               <h1 className="font-bold text-3xl text-[#343989]">Who We are</h1>
+            </Card.Section>
+            <Card.Section inheritPadding>
               <p className="mt-5 text-gray-500">Africa Insurance Company (AIC) is a private insurance firm founded in 1994 under Ethiopia’s Insurance Business Proclamation No. 8/1994. With a fully paid-up capital of 30 million Ethiopian Birr, divided into 30,000 shares of 1,000 Birr each, AIC stands as the strongest private insurer in the country. Despite being a young company, its highly qualified personnel ensure efficient service. Guided by its motto, “Committed to Excellence and Quality Services,” AIC upholds high standards in all operations.</p>
-            </div>
-          </div>
+            </Card.Section>
+          </Card>
         </motion.div>
         <motion.div
           className="flex flex-col items-end  py-8"
@@ -156,7 +159,7 @@ const Home = () => {
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
-          <div className="bg-[#343989] rounded-l-full w-1/2 h-52 overflow-hidden shadow-lg flex items-center">
+          <div className="bg-[#343989] rounded-l-full w-64 h-52 overflow-hidden shadow-lg flex items-center">
             <img
               src={aic}
               alt="Popup Image"
@@ -164,7 +167,7 @@ const Home = () => {
             />
           </div>
         </motion.div>
-      </div>
+      </Flex>
 
       <div className="flex items-center justify-center mb-6">
         <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>

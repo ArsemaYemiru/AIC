@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Header from "../nav/header";
 import Footer from "../nav/footer";
 import { MapPin, Phone, Building2, Mail } from "lucide-react";
+import { Card, Text, Group, SimpleGrid } from '@mantine/core';
 
 const addisAbabaBranches = [
     { location: "Head office Bole", phone: "0116518400", email: "underwritingho@africainsurancesc.com" },
     { location: "Addisu Gebeya", phone: "0111264137/0111265764", email: "addisugebiya@africainsurancesc.com" },
     { location: "Arada", phone: "0111119019/0111119022", email: "arada@africainsurancesc.com" },
     { location: "Arat Kilo", phone: "0111560115/0111560116", email: "aratkilo@africainsurancesc.com" },
-    { location: "Ayer Tena", phone: "01136941830113693708", email: "ayertena@africainsurancesc.com" },
+    { location: "Ayer Tena", phone: "0113694183/0113693708", email: "ayertena@africainsurancesc.com" },
     { location: "Bole/Yeka", phone: "0116616436/0116616435", email: "boleyeka@africainsurancesc.com" },
     { location: "CMC", phone: "0116688403/0116688223", email: "summit@africainsurancesc.com" },
     { location: "Filwuha", phone: "0115517861/0115519519", email: "filwuha@africainsurancesc.com" },
@@ -49,8 +50,8 @@ function Contacts() {
     const [showMoreAddis, setShowMoreAddis] = useState(false);
     const [showMoreRegional, setShowMoreRegional] = useState(false);
 
-    const visibleAddisBranches = showMoreAddis ? addisAbabaBranches : addisAbabaBranches.slice(0, 8);
-    const visibleRegionalBranches = showMoreRegional ? regionalBranches : regionalBranches.slice(0, 8);
+    const visibleAddisBranches = showMoreAddis ? addisAbabaBranches : addisAbabaBranches.slice(0, 9);
+    const visibleRegionalBranches = showMoreRegional ? regionalBranches : regionalBranches.slice(0, 9);
 
     return (
         <>
@@ -72,29 +73,29 @@ function Contacts() {
                     ></iframe>
                 </div>
                 <div className="flex flex-col items-center gap-20">
-  <div className="text-4xl text-[#343989] font-bold text-center mb-8">
-    Where Quality Service Meets Trusted Protection. Contact Us
-  </div>
+                    <div className="text-4xl text-[#343989] font-bold text-center mb-8">
+                        Where Quality Service Meets Trusted Protection. Contact Us
+                    </div>
 
-  <div className="text-[#343989] flex flex-col text-2xl font-bold gap-5 mx-auto max-w-2xl">
-    <div className="flex items-center">
-      <MapPin className="w-6 h-7" />
-      <p className=" ml-4">Head Office @ Africa Avenue (Bole Road)</p>
-    </div>
-    <div className="flex items-center">
-      <Phone className="w-6 h-7" />
-      <p className=" ml-4">251 0116637716 / 17 / 18 / 19</p>
-    </div>
-    <div className="flex items-center">
-      <Building2 className="w-6 h-7" />
-      <p className=" ml-4">12941, Addis Ababa, Ethiopia</p>
-    </div>
-    <div className="flex items-center">
-      <Mail className="w-6 h-7" />
-      <p className=" ml-4">md@africainsurancesc.com</p>
-    </div>
-  </div>
-</div>
+                    <div className="text-[#343989] flex flex-col text-2xl font-bold gap-5 mx-auto max-w-2xl">
+                        <div className="flex items-center">
+                            <MapPin className="w-6 h-7" />
+                            <p className=" ml-4">Head Office @ Africa Avenue (Bole Road)</p>
+                        </div>
+                        <div className="flex items-center">
+                            <Phone className="w-6 h-7" />
+                            <p className=" ml-4">251 0116637716 / 17 / 18 / 19</p>
+                        </div>
+                        <div className="flex items-center">
+                            <Building2 className="w-6 h-7" />
+                            <p className=" ml-4">12941, Addis Ababa, Ethiopia</p>
+                        </div>
+                        <div className="flex items-center">
+                            <Mail className="w-6 h-7" />
+                            <p className=" ml-4">md@africainsurancesc.com</p>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -104,25 +105,27 @@ function Contacts() {
                 <h3 className="text-2xl font-semibold text-[#343989]">Addis Ababa Branches</h3>
                 <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
             </div>
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-[#343989]">
+            <SimpleGrid spacing="xs" cols={{ base: 1, md: 3 }}>
                 {visibleAddisBranches.map((item, index) => (
-                    <div key={index} className="border p-4 rounded-lg flex flex-col gap-3 mx-10">
-                        <div className="flex items-center gap-2">
-                            <MapPin className="w-5 h-5" />
-                            <p className="text-lg font-bold">{item.location}</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Phone className="w-5 h-5" />
-                            <p>{item.phone}</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Mail className="w-5 h-5" />
-                            <p>{item.email}</p>
-                        </div>
-                    </div>
+                    <Card key={index} shadow="sm" size="md" padding="lg" radius="md" className="mx-10 flex flex-col gap-3 border">
+                        <Group spacing="sm">
+                            <MapPin className="w-5 h-5 text-[#343989]" />
+                            <Text weight={700} color="#343989">
+                                {item.location}
+                            </Text>
+                        </Group>
+                        <Group spacing="sm">
+                            <Phone className="w-5 h-5 text-[#343989]" />
+                            <Text color="#343989">{item.phone}</Text>
+                        </Group>
+                        <Group spacing="sm">
+                            <Mail className="w-5 h-5 text-[#343989]" />
+                            <Text color="#343989">{item.email}</Text>
+                        </Group>
+                    </Card>
                 ))}
-            </div>
-            {addisAbabaBranches.length > 6 && (
+            </SimpleGrid>
+            {addisAbabaBranches.length > 8 && (
                 <div className="flex justify-end mr-11">
                     <button
                         className="mt-4 text-[#343989] hover:text-[#EF1C33]"
@@ -138,24 +141,26 @@ function Contacts() {
                 <h3 className="text-2xl font-semibold text-[#343989]">Regional Branches</h3>
                 <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
             </div>
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-[#343989] gap-4">
+            <SimpleGrid spacing="xs" cols={{ base: 1, md: 3 }} >
                 {visibleRegionalBranches.map((item, index) => (
-                    <div key={index} className="border p-4 rounded-lg flex flex-col gap-2 mx-10">
-                        <div className="flex items-center gap-2">
-                            <MapPin className="w-5 h-5" />
-                            <p className="text-lg font-bold">{item.location}</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Phone className="w-5 h-5" />
-                            <p>{item.phone}</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Mail className="w-5 h-5" />
-                            <p>{item.email}</p>
-                        </div>
-                    </div>
+                    <Card key={index} shadow="sm" size="md" padding="lg" radius="md" className="mx-10 flex flex-col gap-3 border">
+                        <Group spacing="sm">
+                            <MapPin className="w-5 h-5 text-[#343989]" />
+                            <Text weight={700} color="#343989">
+                                {item.location}
+                            </Text>
+                        </Group>
+                        <Group spacing="sm">
+                            <Phone className="w-5 h-5 text-[#343989]" />
+                            <Text color="#343989">{item.phone}</Text>
+                        </Group>
+                        <Group spacing="sm">
+                            <Mail className="w-5 h-5 text-[#343989]" />
+                            <Text color="#343989">{item.email}</Text>
+                        </Group>
+                    </Card>
                 ))}
-            </div>
+            </SimpleGrid>
             {regionalBranches.length > 8 && (
                 <div className="flex justify-end mr-11">
                     <button
