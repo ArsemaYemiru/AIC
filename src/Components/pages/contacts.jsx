@@ -56,121 +56,152 @@ function Contacts() {
     return (
         <>
             <Header />
-            <div className="text-3xl mt-8 mb-4 text-[#343989]  px-12 font-size-10 font-bold">
-                <p>Contact Us</p>
-            </div>
-            <div className="flex flex-row justify-space-between ml-36 mt-10">
-                <div className="w-full max-w-3xl h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
-                    <iframe
-                        title="Location Map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.7799458220306!2d38.77787627515661!3d8.992385791067488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b858aa4e36b6d%3A0xba3a09392dcba790!2sAFRICA%20INSURANCE%20COMPANY%20S.C.%20HEAD%20OFFICE!5e0!3m2!1sen!2set!4v1741960143704!5m2!1sen!2set"
-                        width="80%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
+            <div className="px-4 sm:px-8 md:px-12 lg:px-20">
+                <div className="text-2xl sm:text-3xl mt-8 mb-4 text-[#343989] font-bold">
+                    <p>Contact Us</p>
                 </div>
-                <div className="flex flex-col items-center gap-20">
-                    <div className="text-4xl text-[#343989] font-bold text-center mb-8">
-                        Where Quality Service Meets Trusted Protection. Contact Us
+                
+                {/* Map and Contact Info Section */}
+                <div className="flex flex-col lg:flex-row gap-8 mt-10">
+                    {/* Map */}
+                    <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+                        <iframe
+                            title="Location Map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.7799458220306!2d38.77787627515661!3d8.992385791067488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b858aa4e36b6d%3A0xba3a09392dcba790!2sAFRICA%20INSURANCE%20COMPANY%20S.C.%20HEAD%20OFFICE!5e0!3m2!1sen!2set!4v1741960143704!5m2!1sen!2set"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
 
-                    <div className="text-[#343989] flex flex-col text-2xl font-bold gap-5 mx-auto max-w-2xl">
-                        <div className="flex items-center">
-                            <MapPin className="w-6 h-7" />
-                            <p className=" ml-4">Head Office @ Africa Avenue (Bole Road)</p>
+                    {/* Contact Information */}
+                    <div className="w-full lg:w-1/2 flex flex-col items-center justify-center gap-8">
+                        <div className="text-2xl sm:text-3xl lg:text-4xl text-[#343989] font-bold text-center">
+                            Where Quality Service Meets Trusted Protection. Contact Us
                         </div>
-                        <div className="flex items-center">
-                            <Phone className="w-6 h-7" />
-                            <p className=" ml-4">251 0116637716 / 17 / 18 / 19</p>
-                        </div>
-                        <div className="flex items-center">
-                            <Building2 className="w-6 h-7" />
-                            <p className=" ml-4">12941, Addis Ababa, Ethiopia</p>
-                        </div>
-                        <div className="flex items-center">
-                            <Mail className="w-6 h-7" />
-                            <p className=" ml-4">md@africainsurancesc.com</p>
+
+                        <div className="text-[#343989] flex flex-col text-lg sm:text-xl font-bold gap-4 w-full max-w-md">
+                            <div className="flex items-center gap-3">
+                                <MapPin className="w-6 h-6" />
+                                <p>Head Office @ Africa Avenue (Bole Road)</p>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Phone className="w-6 h-6" />
+                                <p>251 0116637716 / 17 / 18 / 19</p>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Building2 className="w-6 h-6" />
+                                <p>12941, Addis Ababa, Ethiopia</p>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Mail className="w-6 h-6" />
+                                <p>md@africainsurancesc.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-            </div>
-
-            <div className="flex items-center justify-center mt-6 mb-6">
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-                <h3 className="text-2xl font-semibold text-[#343989]">Addis Ababa Branches</h3>
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-            </div>
-            <SimpleGrid spacing="xs" cols={{ base: 1, md: 3 }}>
-                {visibleAddisBranches.map((item, index) => (
-                    <Card key={index} shadow="sm" size="md" padding="lg" radius="md" className="mx-10 flex flex-col gap-3 border">
-                        <Group spacing="sm">
-                            <MapPin className="w-5 h-5 text-[#343989]" />
-                            <Text weight={700} color="#343989">
-                                {item.location}
-                            </Text>
-                        </Group>
-                        <Group spacing="sm">
-                            <Phone className="w-5 h-5 text-[#343989]" />
-                            <Text color="#343989">{item.phone}</Text>
-                        </Group>
-                        <Group spacing="sm">
-                            <Mail className="w-5 h-5 text-[#343989]" />
-                            <Text color="#343989">{item.email}</Text>
-                        </Group>
-                    </Card>
-                ))}
-            </SimpleGrid>
-            {addisAbabaBranches.length > 8 && (
-                <div className="flex justify-end mr-11">
-                    <button
-                        className="mt-4 text-[#343989] hover:text-[#EF1C33]"
-                        onClick={() => setShowMoreAddis(!showMoreAddis)}
+                {/* Addis Ababa Branches Section */}
+                <div className="mt-12">
+                    <div className="flex items-center justify-center mb-6">
+                        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-[#343989]">Addis Ababa Branches</h3>
+                        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                    </div>
+                    <SimpleGrid 
+                        spacing="md" 
+                        cols={{ base: 1, sm: 2, md: 3 }}
+                        className="px-4 sm:px-8"
                     >
-                        {showMoreAddis ? "Show Less" : "More"}
-                    </button>
+                        {visibleAddisBranches.map((item, index) => (
+                            <Card 
+                                key={index} 
+                                shadow="sm" 
+                                padding="lg" 
+                                radius="md" 
+                                className="border hover:shadow-md transition-shadow"
+                            >
+                                <Group spacing="sm">
+                                    <MapPin className="w-5 h-5 text-[#343989]" />
+                                    <Text weight={700} color="#343989">
+                                        {item.location}
+                                    </Text>
+                                </Group>
+                                <Group spacing="sm">
+                                    <Phone className="w-5 h-5 text-[#343989]" />
+                                    <Text color="#343989">{item.phone}</Text>
+                                </Group>
+                                <Group spacing="sm">
+                                    <Mail className="w-5 h-5 text-[#343989]" />
+                                    <Text color="#343989">{item.email}</Text>
+                                </Group>
+                            </Card>
+                        ))}
+                    </SimpleGrid>
+                    {addisAbabaBranches.length > 8 && (
+                        <div className="flex justify-end mt-6">
+                            <button
+                                className="px-4 py-2 text-[#343989] hover:text-[#EF1C33] font-medium"
+                                onClick={() => setShowMoreAddis(!showMoreAddis)}
+                            >
+                                {showMoreAddis ? "Show Less" : "Show More"}
+                            </button>
+                        </div>
+                    )}
                 </div>
-            )}
 
-            <div className="flex items-center justify-center mt-6 mb-6">
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-                <h3 className="text-2xl font-semibold text-[#343989]">Regional Branches</h3>
-                <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
-            </div>
-            <SimpleGrid spacing="xs" cols={{ base: 1, md: 3 }} >
-                {visibleRegionalBranches.map((item, index) => (
-                    <Card key={index} shadow="sm" size="md" padding="lg" radius="md" className="mx-10 flex flex-col gap-3 border">
-                        <Group spacing="sm">
-                            <MapPin className="w-5 h-5 text-[#343989]" />
-                            <Text weight={700} color="#343989">
-                                {item.location}
-                            </Text>
-                        </Group>
-                        <Group spacing="sm">
-                            <Phone className="w-5 h-5 text-[#343989]" />
-                            <Text color="#343989">{item.phone}</Text>
-                        </Group>
-                        <Group spacing="sm">
-                            <Mail className="w-5 h-5 text-[#343989]" />
-                            <Text color="#343989">{item.email}</Text>
-                        </Group>
-                    </Card>
-                ))}
-            </SimpleGrid>
-            {regionalBranches.length > 8 && (
-                <div className="flex justify-end mr-11">
-                    <button
-                        className="mt-4 text-[#343989] hover:text-[#EF1C33]"
-                        onClick={() => setShowMoreRegional(!showMoreRegional)}
+                {/* Regional Branches Section */}
+                <div className="mt-12">
+                    <div className="flex items-center justify-center mb-6">
+                        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-[#343989]">Regional Branches</h3>
+                        <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
+                    </div>
+                    <SimpleGrid 
+                        spacing="md" 
+                        cols={{ base: 1, sm: 2, md: 3 }}
+                        className="px-4 sm:px-8"
                     >
-                        {showMoreRegional ? "Show Less" : "More"}
-                    </button>
+                        {visibleRegionalBranches.map((item, index) => (
+                            <Card 
+                                key={index} 
+                                shadow="sm" 
+                                padding="lg" 
+                                radius="md" 
+                                className="border hover:shadow-md transition-shadow"
+                            >
+                                <Group spacing="sm">
+                                    <MapPin className="w-5 h-5 text-[#343989]" />
+                                    <Text weight={700} color="#343989">
+                                        {item.location}
+                                    </Text>
+                                </Group>
+                                <Group spacing="sm">
+                                    <Phone className="w-5 h-5 text-[#343989]" />
+                                    <Text color="#343989">{item.phone}</Text>
+                                </Group>
+                                <Group spacing="sm">
+                                    <Mail className="w-5 h-5 text-[#343989]" />
+                                    <Text color="#343989">{item.email}</Text>
+                                </Group>
+                            </Card>
+                        ))}
+                    </SimpleGrid>
+                    {regionalBranches.length > 8 && (
+                        <div className="flex justify-end mt-4">
+                            <button
+                                className="px-4 py-2 text-[#343989] hover:text-[#EF1C33] font-medium"
+                                onClick={() => setShowMoreRegional(!showMoreRegional)}
+                            >
+                                {showMoreRegional ? "Show Less" : "Show More"}
+                            </button>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
             <Footer />
         </>
     );
