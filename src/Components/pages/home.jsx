@@ -175,11 +175,10 @@ const Home = () => {
             </Card.Section>
             <Card.Section inheritPadding>
               <p className="mt-5 text-gray-500">
-                Africa Insurance Company (AIC) is a private insurance firm
-                founded in 1994 under Ethiopia’s Insurance Business Proclamation
-                No. 8/1994. With a fully paid-up capital of 30 million Ethiopian
-                Birr, divided into 30,000 shares of 1,000 Birr each, AIC stands
-                as the strongest private insurer in the country...
+                We are one of th epioneers in the business of Ethiopia since 1994 with initial paid up 
+                capital of of birr 575 million  currently 
+                 and authorised capital has risen to birr 2 billion. The capital base makes us the 
+                 Strongest Private Insurance Company in Ethiopia.
               </p>
             </Card.Section>
           </Card>
