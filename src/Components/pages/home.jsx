@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  Flex,
-} from "@mantine/core";
+import { Card, Flex,Text, } from "@mantine/core";
 import {
   ChevronLeft,
   ChevronRight,
@@ -77,7 +74,22 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [currentIndex]);
-
+  const ReadMore = ({ text, limit }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const toggleReadMore = () => setIsExpanded(!isExpanded);
+  
+    return (
+      <p className="text-center">
+        {isExpanded ? text : text.slice(0, limit) + "..."}
+        <button
+          className="text-[#DECCFE] font-semibold ml-2 underline"
+          onClick={toggleReadMore}
+        >
+          {isExpanded ? "Read Less" : "Read More"}
+        </button>
+      </p>
+    );
+  };
   return (
     <div className="relative w-full overflow-x-hidden">
       <Header />
@@ -174,11 +186,8 @@ const Home = () => {
               </h1>
             </Card.Section>
             <Card.Section inheritPadding>
-              <p className="mt-5 text-gray-500">
-                We are one of th epioneers in the business of Ethiopia since 1994 with initial paid up 
-                capital of of birr 575 million  currently 
-                 and authorised capital has risen to birr 2 billion. The capital base makes us the 
-                 Strongest Private Insurance Company in Ethiopia.
+              <p className="mt-5 text-xl text-gray-500">
+              Africa Insurance Company (S.C.) is a privately owned company based in Ethiopia, established on December 8, 1994, in accordance with Proclamation No. 86/1994 and the Commercial Code of Ethiopia. We are pioneers in the insurance industry, starting with an initial paid-up capital of Birr 575 million. Over the years, our authorized capital has grown to Birr 2 billion, making us the strongest private insurance company in the country. The company is engaged in general insurance, sickness insurance, annuity, personal accident, and long-term insurance businesses. In addition to its core insurance services, Africa Insurance Company (S.C.) invests in real estate, including mortgages, bonds, shares, and other ventures that support and enhance its investment strategy. The company also undertakes any other activities that directly or indirectly contribute to its business objectives.
               </p>
             </Card.Section>
           </Card>
