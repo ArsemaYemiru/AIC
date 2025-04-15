@@ -162,7 +162,7 @@ function Products() {
                     <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 mb-10 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
                     {products.slice(1).map((products, index) => (
                         <div key={index} className="bg-[#343989] text-white p-10 rounded-lg flex flex-col items-start">
                             {React.cloneElement(products.icon, { size: 60 })}
