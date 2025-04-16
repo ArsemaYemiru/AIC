@@ -226,7 +226,7 @@ const Home = () => {
       </div>
 
       {/* Motto and Map */}
-      <div className="flex flex-col lg:flex-row justify- space-x-28 items-center  mt-36 px-4 sm:px-10">
+      <div className="flex flex-col lg:flex-row justify-between items-center space-x-28 mt-36 px-4 sm:px-10">
         <div className="w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
           <iframe
             title="Location Map"
@@ -239,8 +239,13 @@ const Home = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="text-4xl font-bold text-[#343989]">
-          Committed to Excellence !
+        <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left px-4 py-8 bg-[#f7f9fc] rounded-lg shadow-lg">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#343989] mb-4">
+            Committed to Excellence!
+          </h2>
+          <p className="text-lg text-gray-600">
+            Our dedication to providing top-tier services and unparalleled protection drives everything we do. We go above and beyond to ensure that our clients experience the highest standards in insurance solutions.
+          </p>
         </div>
       </div>
 
