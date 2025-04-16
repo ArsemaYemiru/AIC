@@ -45,6 +45,7 @@ const boardMembers = [
 const managers = [
   { title: 'Managing Director - CEO', name: 'Ato Kiros Jiranie', image: kiros },
   { title: 'Deputy Managing Director', name: 'Ato Kassahun Begashaw', image: kassahun },
+  { title: 'U/W & Branch Operations Department', name: 'Ato Demis Abera', image: demis },
   { title: 'HRM & Property Administration Department', name: 'Ato Tesfaye Girma', image: tesfaye },
   { title: 'Reinsurance Service', name: 'Ato Mezmur Hawaz', image: mezmur },
   { title: 'Engineering Service', name: 'Ato Estifanos Emiru', image: estifanos },
@@ -54,7 +55,6 @@ const managers = [
   { title: 'Claims Management Department', name: 'Ato Yohannes Hailu', image: yohannes },
   { title: 'Finance and Investment Department', name: 'Ato Daniel Teweldebrehan', image: daniel },
   { title: 'ICT Department', name: 'Ato Dejene Megersa', image: dejene },
-  { title: 'U/W & Branch Operations Department', name: 'Ato Demis Abera', image: demis },
   { title: 'Life & Health Insurance Department', name: 'Ato Alemseged Meresa', image: alemseged }
 ];
 const ReadMore = ({ text, limit }) => {
