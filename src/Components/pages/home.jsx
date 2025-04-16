@@ -103,9 +103,9 @@ const Home = () => {
         ))}
 
         {/* Description */}
-        <div className="absolute bottom-10 left-5 sm:left-10 bg-black/0 p-4 rounded-lg text-white z-20 max-w-sm text-sm sm:text-lg font-semibold flex items-center">
+        <div className="absolute bottom-36 left-5 sm:left-10 bg-black/0 p-4 rounded-lg text-white z-20 max-w-lg text-lg sm:text-3xl font-bold flex items-center">
           <div style={{ zIndex: 11 }} className="h-36">
-            <div className="w-[6px] h-full bg-white"></div>
+            <div className="w-[10px] h-[200px] bg-white"></div>
           </div>
           <div className="ml-4">
             {currentIndex === 0 &&
