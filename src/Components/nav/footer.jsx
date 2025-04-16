@@ -1,4 +1,4 @@
-import { MapPin, Phone, Building2, Mail, Instagram, Twitter, Youtube } from "lucide-react";
+import { MapPin, Phone, Building2, Mail} from "lucide-react";
 import { ActionIcon, Container, Group, Text, Title, Stack, SimpleGrid } from "@mantine/core";
 
 const data = [
