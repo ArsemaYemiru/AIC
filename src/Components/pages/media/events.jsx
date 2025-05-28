@@ -6,26 +6,23 @@ const Events = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expandedPosts, setExpandedPosts] = useState({}); // Track expanded/collapsed state
+  const [expandedPosts, setExpandedPosts] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost/mywordpress/wp-json/wp/v2/posts?categories=7&_embed')
+    fetch('/events/events.json')
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        if (!response.ok) throw new Error('Failed to load event');
         return response.json();
       })
       .then((data) => {
-        setPosts(data);
+        setPosts(data.posts);
         setLoading(false);
       })
-      .catch((error) => {
-        setError(error);
+      .catch((err) => {
+        setError(err.message);
         setLoading(false);
       });
   }, []);
-
   // Toggle expanded state for a post
   const toggleExpand = (postId) => {
     setExpandedPosts((prev) => ({
@@ -87,32 +84,42 @@ const Events = () => {
 
             return (
               <div
-                key={post.id}
-                className="mb-6 p-6 border border-gray-300 rounded-lg shadow-md bg-white"
-              >
-                <h2 className="text-2xl font-bold text-[#343989] mb-4">
-                  {post.title.rendered}
-                </h2>
-                <div className="text-gray-700 mb-4">
-                  <strong>Date:</strong>{' '}
-                  {new Date(post.date).toLocaleDateString('en-GB', {
-                    weekday: 'long',
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                  })}
-                </div>
-                <div
-                  className={`text-gray-700 mb-4 ${isExpanded ? '' : 'line-clamp-3'}`} // Collapse content if not expanded
-                  dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-                />
-                <button
-                  onClick={() => toggleExpand(post.id)}
-                  className="text-blue-500 hover:text-blue-700 font-semibold"
-                >
-                  {isExpanded ? 'Less' : 'More'}
-                </button>
-              </div>
+  key={post.id}
+  className="mb-6 p-6 border border-gray-300 rounded-lg shadow-md bg-white"
+>
+  <img
+    src={`/events/${post.image}`}
+    alt={post.title}
+    className="w-full h-64 object-cover rounded-md mb-4"
+  />
+
+  <h2 className="text-2xl font-bold text-[#343989] mb-4">
+    {post.title}
+  </h2>
+
+  <div className="text-gray-700 mb-4">
+    <strong>Date:</strong>{' '}
+    {new Date(post.date).toLocaleDateString('en-GB', {
+      weekday: 'long',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })}
+  </div>
+
+  <div
+    className={`text-gray-700 mb-4 ${isExpanded ? '' : 'line-clamp-3'}`}
+    dangerouslySetInnerHTML={{ __html: post.content }}
+  />
+
+  <button
+    onClick={() => toggleExpand(post.id)}
+    className="text-blue-500 hover:text-blue-700 font-semibold"
+  >
+    {isExpanded ? 'Less' : 'More'}
+  </button>
+</div>
+
             );
           })}
         </div>
