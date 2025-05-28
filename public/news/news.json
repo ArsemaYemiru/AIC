@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Important Update on Our New Initiative",
+      "date": "2025-05-01T10:00:00Z",
+      "content": "<p>We are thrilled to announce a brand new initiative that will improve the way we deliver services to our community. More details will be shared in the coming weeks as we continue to develop this exciting opportunity.</p>"
+    },
+    {
+      "id": 2,
+      "title": "Community Outreach Program Success",
+      "date": "2025-04-15T09:30:00Z",
+      "content": "<p>Last month, our community outreach program reached over 500 individuals across several neighborhoods. We thank all the volunteers who participated and made it a great success.Last month, our community outreach program reached over 500 individuals across several neighborhoods. We thank all the volunteers who participated and made it a great success.Last month, our community outreach program reached over 500 individuals across several neighborhoods. We thank all the volunteers who participated and made it a great success.Last month, our community outreach program reached over 500 individuals across several neighborhoods. We thank all the volunteers who participated and made it a great success.Last month, our community outreach program reached over 500 individuals across several neighborhoods. We thank all the volunteers who participated and made it a great success</p>"
+    }
+  ]
+}
