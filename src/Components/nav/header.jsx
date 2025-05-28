@@ -9,8 +9,8 @@ function Header() {
   return (
     <header className="bg-white text-[#343989] sticky top-0 z-40 shadow px-3 sm:px-20">
       <div className="flex justify-between items-center py-1">
-        <img src={aic} alt="Logo" className="h-10 sm:h-20" />
-
+        <a href="/" className="hover:text-[#EF1C33]"><img src={aic} alt="Logo" className="h-10 sm:h-20" />
+</a>
         {/* Hamburger menu for mobile */}
         <button className="sm:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}

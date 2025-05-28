@@ -13,6 +13,7 @@ import News from "./Components/pages/media/news";
 import Reports from "./Components/pages/media/reports";
 import Products from "./Components/pages/services/products";
 import Claims from "./Components/pages/services/claims";
+// import Mainlayout from "./Components/pages/services/mainlayout";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/products" element={< Products/>} />
         <Route path="/claims" element={<Claims/>}/>
+        {/* <Route path="/count" element={<Mainlayout/>}/> */}
+        
       </Routes>
     </Router>
     </>

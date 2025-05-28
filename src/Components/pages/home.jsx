@@ -26,10 +26,10 @@ import Health from "../../assets/health.jpg";
 import Workers from "../../assets/workers.jpg";
 import Arg from "../../assets/arg.jpeg";
 import Fly from "../../assets/fly.jpg";
-import aic from "../../assets/aic.png";
+import Build from "../../assets/build.jpg";
 import { motion } from "framer-motion";
 
-const images = [Life, Motor, Shipping, Workers, Health, Arg, Fly];
+const images = [Build, Life, Motor, Shipping, Workers, Health, Arg, Fly];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -117,22 +117,24 @@ const Home = () => {
         {/* Description */}
         <div className="absolute bottom-36 left-5 sm:left-10 bg-black/0 p-4 rounded-lg text-white z-20 max-w-lg text-lg sm:text-3xl font-bold flex items-center">
           <div style={{ zIndex: 11 }} className="h-36">
-            <div className="w-[10px] h-[200px] bg-white"></div>
+            <div className="w-[10px] h-[160px] bg-white"></div>
           </div>
           <div className="ml-4">
-            {currentIndex === 0 &&
-              "Life Insurance provides financial security for your loved ones in times of need."}
-            {currentIndex === 6 &&
-              "Aviation Insurance ensures safety and protection for aircraft operations worldwide."}
+            {currentIndex ===0 &&
+            "Welcome to Africa Insurance Company!"}
             {currentIndex === 1 &&
-              "Motor Insurance covers vehicle damages, liabilities, and third-party claims."}
+              "Life Insurance provides financial security for your loved ones in times of need."}
+            {currentIndex === 7 &&
+              "Aviation Insurance ensures safety and protection for aircraft operations worldwide."}
             {currentIndex === 2 &&
-              "Shipping Insurance safeguards goods against potential losses and damages at sea."}
+              "Motor Insurance covers vehicle damages, liabilities, and third-party claims."}
             {currentIndex === 3 &&
-              "Workmen's Compensation Insurance secures employees' well-being in the workplace."}
+              "Shipping Insurance safeguards goods against potential losses and damages at sea."}
             {currentIndex === 4 &&
-              "Health Insurance provides comprehensive medical coverage and emergency assistance."}
+              "Workmen's Compensation Insurance secures employees' well-being in the workplace."}
             {currentIndex === 5 &&
+              "Health Insurance provides comprehensive medical coverage and emergency assistance."}
+            {currentIndex === 6 &&
               "Agriculture Insurance protects farmers from financial loss due to natural disasters."}
           </div>
         </div>

@@ -133,86 +133,140 @@ function About() {
           <h3 className="text-2xl font-semibold text-[#343989]">Board of Directors</h3>
           <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
         </div>
-        <Flex py="md" justify={'center'}>
-          <SimpleGrid 
-            cols={{ base: 1, sm: 2, md: 3, lg: 5 }}
-            spacing={{ base: 20, sm: 30, md: 40, lg: 50 }}
-            breakpoints={[
-              { maxWidth: 'sm', cols: 1, spacing: 20 },
-              { maxWidth: 'md', cols: 2, spacing: 30 },
-              { maxWidth: 'lg', cols: 3, spacing: 40 },
-              { minWidth: 'lg', cols: 5, spacing: 50 }
-            ]}
-          >
-            {boardMembers.map((member, index) => (
-              <Card 
-                key={index} 
-                radius="lg" 
-                withBorder 
-                padding="lg" 
-                ta="center" 
-                style={{ width: '100%', maxWidth: '250px' }} 
-                hover={{ shadow: '#EF1C33' }}
-              >
-                <AspectRatio ratio={4/5} miw={200} mx="auto">
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    mx="auto" 
-                    radius="md" 
-                    mb="md" 
-                    style={{ objectFit: 'cover', width: '100%' }} 
-                  />
-                </AspectRatio>
-                <Title order={4} style={{ color: '#343989' }}>{member.title}</Title>
-                <Text size="md" color="dimmed">{member.name}</Text>
-              </Card>
-            ))}
-          </SimpleGrid>
-        </Flex>
+        <Flex py="md" direction="column" align="center" gap="xl">
+  {/* Top Person (e.g., Chairman/CEO) - Only the first in the array */}
+  {boardMembers.length > 0 && (
+    <Card 
+      radius="lg" 
+      withBorder 
+      padding="lg" 
+      ta="center" 
+      style={{ width: '100%', maxWidth: '300px' }} 
+      hover={{ shadow: '#EF1C33' }}
+    >
+      <AspectRatio ratio={4/5} miw={200} mx="auto">
+        <Image 
+          src={boardMembers[0].image} 
+          alt={boardMembers[0].name} 
+          mx="auto" 
+          radius="md" 
+          mb="md" 
+          style={{ objectFit: 'cover', width: '100%' }} 
+        />
+      </AspectRatio>
+      <Title order={4} style={{ color: '#343989' }}>{boardMembers[0].title}</Title>
+      <Text size="md" color="dimmed">{boardMembers[0].name}</Text>
+    </Card>
+  )}
+
+  {/* Rest of the members in a grid */}
+  <SimpleGrid 
+    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+    spacing={{ base: 20, sm: 30, md: 40, lg: 50 }}
+    breakpoints={[
+      { maxWidth: 'sm', cols: 1, spacing: 20 },
+      { maxWidth: 'md', cols: 2, spacing: 30 },
+      { maxWidth: 'lg', cols: 3, spacing: 40 },
+    ]}
+  >
+    {boardMembers.slice(1).map((member, index) => ( // Skip first member
+      <Card 
+        key={index} 
+        radius="lg" 
+        withBorder 
+        padding="lg" 
+        ta="center" 
+        style={{ width: '100%', maxWidth: '220px' }} 
+        hover={{ shadow: '#EF1C33' }}
+      >
+        <AspectRatio ratio={4/5} miw={160} mx="auto">
+          <Image 
+            src={member.image} 
+            alt={member.name} 
+            mx="auto" 
+            radius="md" 
+            mb="md" 
+            style={{ objectFit: 'cover', width: '100%' }} 
+          />
+        </AspectRatio>
+        <Title order={4} style={{ color: '#343989' }}>{member.title}</Title>
+        <Text size="md" color="dimmed">{member.name}</Text>
+      </Card>
+    ))}
+  </SimpleGrid>
+
+
+</Flex>
         {/* MANAGERS */}
         <div className="flex items-center justify-center mt-6 mb-6">
           <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
           <h3 className="text-2xl font-semibold text-[#343989]">Executive Managers</h3>
           <div className="w-1/3 border-t-2 border-[#343989] mx-4"></div>
         </div>
-        <Flex py="md" justify={'center'}>
-          <SimpleGrid 
-            cols={{ base: 1, sm: 2, md: 3, lg: 5 }}
-            spacing={{ base: 20, sm: 30, md: 40, lg: 50 }}
-            breakpoints={[
-              { maxWidth: 'sm', cols: 1, spacing: 20 },
-              { maxWidth: 'md', cols: 2, spacing: 30 },
-              { maxWidth: 'lg', cols: 3, spacing: 40 },
-              { minWidth: 'lg', cols: 5, spacing: 50 }
-            ]}
-          >
-            {managers.map((member, index) => (
-              <Card 
-                key={index} 
-                shadow="md" 
-                radius="lg" 
-                withBorder 
-                padding="lg" 
-                ta="center" 
-                style={{ width: '100%', maxWidth: '250px' }}
-              >
-                <AspectRatio ratio={4/5} miw={200} mx="auto">
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    mx="auto" 
-                    radius="md" 
-                    mb="md" 
-                    style={{ objectFit: 'cover', width: '100%' }} 
-                  />
-                </AspectRatio>
-                <Title order={4} style={{ color: '#343989' }}>{member.title}</Title>
-                <Text size="md" color="dimmed">{member.name}</Text>
-              </Card>
-            ))}
-          </SimpleGrid>
-        </Flex>
+        <Flex py="md" direction="column" align="center" gap="xl">
+  {/* Top Manager (first in array) */}
+  {managers.length > 0 && (
+    <Card 
+      shadow="md"
+      radius="lg" 
+      withBorder 
+      padding="lg" 
+      ta="center" 
+      style={{ width: '100%', maxWidth: '300px' }}
+    >
+      <AspectRatio ratio={4/5} miw={220} mx="auto">
+        <Image 
+          src={managers[0].image} 
+          alt={managers[0].name} 
+          mx="auto" 
+          radius="md" 
+          mb="md" 
+          style={{ objectFit: 'cover', width: '100%' }} 
+        />
+      </AspectRatio>
+      <Title order={4} style={{ color: '#343989' }}>{managers[0].title}</Title>
+      <Text size="md" color="dimmed">{managers[0].name}</Text>
+    </Card>
+  )}
+
+  {/* Remaining Managers in Grid */}
+  <SimpleGrid 
+    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+    spacing={{ base: 20, sm: 30, md: 40, lg: 50 }}
+    breakpoints={[
+      { maxWidth: 'sm', cols: 1, spacing: 20 },
+      { maxWidth: 'md', cols: 2, spacing: 30 },
+      { maxWidth: 'lg', cols: 3, spacing: 40 },
+    ]}
+  >
+    {managers.slice(1).map((member, index) => (
+      <Card 
+        key={index} 
+        shadow="md"
+        radius="lg" 
+        withBorder 
+        padding="lg" 
+        ta="center" 
+        style={{ width: '100%', maxWidth: '250px' }}
+      >
+        <AspectRatio ratio={4/5} miw={200} mx="auto">
+          <Image 
+            src={member.image} 
+            alt={member.name} 
+            mx="auto" 
+            radius="md" 
+            mb="md" 
+            style={{ objectFit: 'cover', width: '100%' }} 
+          />
+        </AspectRatio>
+        <Title order={4} style={{ color: '#343989' }}>{member.title}</Title>
+        <Text size="md" color="dimmed">{member.name}</Text>
+      </Card>
+    ))}
+  </SimpleGrid>
+</Flex>
+
+
         <div className="flex flex-col md:flex-row md:space-x-4 mt-20 mb-20">
           <div className="flex-1 mx-2">
             <Card withBorder shadow="sm" radius="sm" padding="xl" style={{ borderLeftColor: "#343989", borderLeftWidth: 5 }}>
