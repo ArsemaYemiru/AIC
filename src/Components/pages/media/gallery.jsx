@@ -23,8 +23,30 @@ const Gallery = () => {
       });
   }, []);
 
-  if (loading) return <div>Loading gallery...</div>;
-  if (error) return <div>Error loading gallery: {error}</div>;
+ if (loading) return (
+    <div>
+      <Header />
+      <div className="ml-12 mr-12">
+        <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
+          <p>Gallery is Loading</p>
+        </div>
+      </div>
+      <Footer />
+    </div>
+    
+  ); 
+   if (error) return (
+    <div>
+      <Header />
+      <div className="ml-12 mr-12">
+        <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
+          <p>Gallery is Not Available</p>
+        </div>
+      </div>
+      <Footer />
+    </div>
+    
+  ); 
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -3,62 +3,38 @@ import Header from "../../nav/header";
 import Footer from "../../nav/footer";
 
 const Reports = () => {
-  const [reports, setReports] = useState([]);
+  const [pdfFiles, setPdfFiles] = useState([
+      { name: 'AFRICA INSURANCE COMPANY S.C. ANNUAL REPORT 2023-2024.pdf', 
+        path: '/reports/AFRICA-INSURANCE-COMPANY-S.C.-ANNUAL-REPORT-2023-2024.pdf'},
+
+        { name: 'AFRICA-INSURANCE-COMPANY-S.C.-ANNUAL-REPORT-2022-23.pdf', 
+        path: '/reports/AFRICA INSURANCE COMPANY S.C. ANNUAL REPORT 2022-2023.pdf'}
+      // Add more files as needed
+    ]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch(
-      "http://localhost/mywordpress/wp-json/wp/v2/posts?categories=11&_embed"
-    )
+useEffect(() => {
+    // Fetch the list of PDF files from the reportss directory
+    fetch('/reports/manifest.json')
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+        if (!response.ok) throw new Error('Failed to load Reports');
         return response.json();
       })
       .then((data) => {
-        const reportsWithPdfs = data
-          .map((post) => {
-            // Extract PDF URLs from post content
-            const pdfUrls = extractPdfUrls(post.content.rendered);
-
-            return {
-              id: post.id,
-              title: post.title.rendered,
-              pdfUrls: pdfUrls,
-              date: post.date,
-              featuredImage:
-                post._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-              excerpt: post.excerpt.rendered,
-            };
-          })
-          .filter((report) => report.pdfUrls.length > 0);
-
-        setReports(reportsWithPdfs);
+        setPdfFiles(data.files);
         setLoading(false);
       })
-      .catch((error) => {
-        setError(error);
+      .catch((err) => {
+        setError(err.message);
         setLoading(false);
       });
   }, []);
 
-  // Function to extract PDF URLs from HTML content
-  const extractPdfUrls = (htmlContent) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, "text/html");
-    const links = doc.querySelectorAll('a[href$=".pdf"]');
-
-    return Array.from(links).map((link) => ({
-      url: link.href,
-      text: link.textContent || "View Report",
-    }));
+  const openPdfInNewTab = (pdfPath) => {
+    window.open(pdfPath, '_blank', 'noopener,noreferrer');
   };
 
-  const openPdfInNewTab = (pdfUrl) => {
-    window.open(pdfUrl, "_blank", "noopener,noreferrer");
-  };
 
   if (loading)
     return (
@@ -86,52 +62,35 @@ const Reports = () => {
       </div>
     );
 
-  if (!reports || reports.length === 0)
-    return (
-      <div>
-        <Header />
-        <div className="ml-12 mr-12">
-          <div className="text-3xl mt-8 mb-4 text-[#343989] font-bold">
-            <p>No Annual Reports Available</p>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
 
-  return (
+return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <div className="flex-grow ml-12 mr-12">
         <div className="text-3xl mt-8 mb-8 text-[#343989] font-bold">
-          <h2>Annual Reports</h2>
+          <p>Annual Reports</p>
         </div>
-        {/* 3-column grid container */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {reports.map((report) => (
-            <div
-              key={report.id}
-              className="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+          {pdfFiles.map((file, index) => (
+            <div 
+              key={index}
+              className="text-center border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
-              <h3 className="text-xl text-center font-semibold text-[#343989] mb-3 line-clamp-2">
-                {report.title}
+              <h3 className="text-xl font-semibold text-[#343989] mb-3 line-clamp-2">
+                {file.name.replace('.pdf', '')}
               </h3>
-              {/* PDF view buttons */}
-              <div className="mt-auto space-y-2">
-                {report.pdfUrls.map((pdf, index) => (
-                  <button
-                    key={index}
-                    onClick={() => openPdfInNewTab(pdf.url)}
-                    className="w-full px-4 py-2 bg-[#343989] text-white rounded-md hover:bg-[#2a2f7a] transition-colors font-medium"
-                  >
-                    {pdf.text}
-                  </button>
-                ))}
-              </div>
+            
+              
+              <button
+                onClick={() => openPdfInNewTab(`/reports/${file.name}`)}
+                className="mt-auto px-4 py-2 bg-[#343989] text-white rounded-md hover:bg-[#2a2f7a] transition-colors font-medium"
+              >
+                View PDF
+              </button>
             </div>
           ))}
         </div>
-        
       </div>
       <Footer />
     </div>
