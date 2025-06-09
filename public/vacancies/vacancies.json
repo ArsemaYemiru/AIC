@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "HR Manager",
+      "date": "2025-05-01T10:00:00Z",
+      "content": "<p>We are thrilled to announce a brand new opening in our company.</p>",
+      "requirements":"Has to have minimum 5 years of experience in HR management, excellent communication skills, and a proven track record in team leadership.",
+      "location": "Head Office",
+      "salary": "10,000 - 20,000 Monthly",
+      "applicationDeadline": "2025-06-01T23:59:59Z",
+      "apply": "link-to-application-form.com"
+
+    },
+    {
+      "id": 2,
+      "title": "Receptionist",
+      "date": "2025-05-01T10:00:00Z",
+      "content": "<p>We are thrilled to announce a brand new opening in our company.</p>",
+      "requirements":"Has to have minimum 5 years of experience in taking calls, excellent communication skills, accuracy, and a proven track record in keeping appointments.",
+      "location": "Head Office",
+      "salary": "10,000 - 20,000 Monthly",
+      "applicationDeadline": "2025-06-01T23:59:59Z",
+      "apply": "link-to-application-form.com"
+    }
+  ]
+}

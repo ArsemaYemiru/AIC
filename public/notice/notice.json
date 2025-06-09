@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Main Meeting on July 1st",
+      "date": "July 1, 2025",
+      "time": "2:00 Local Time",
+      "location": "Head Office",
+      "content": "<p>We will be having a yearly meeting to discuss quotas, agendas, and the yearly budget.</p>"
+    },
+    {
+      "id": 1,
+      "title": "Main Meeting on July 1st",
+      "date": "July 1, 2025",
+      "time": "2:00 Local Time",
+      "location": "Head Office",
+      "content": "<p>We will be having a yearly meeting to discuss quotas, agendas, and the yearly budget.</p><p>It will be held at the Main Office 12th Floor</p>"
+    }
+  ]
+}

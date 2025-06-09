@@ -1,4 +1,4 @@
-import { MapPin, Phone, Building2, Mail, Instagram, Twitter, Youtube } from "lucide-react";
+import { MapPin, Phone, Building2, Mail, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 import { ActionIcon, Container, Group, Text, Title, Stack, SimpleGrid } from "@mantine/core";
 
 const data = [
@@ -18,10 +18,15 @@ const data = [
     {
         title: "Contact Us",
         links: [
-            { icon: MapPin, label: "Head Office @ Africa Avenue (Bole Road)" },
-            { icon: Phone, label: "251 0116637716 / 17 / 18 / 19" },
-            { icon: Building2, label: "12941, Addis Ababa, Ethiopia" },
-            { icon: Mail, label: "md@africainsurancesc.com" },
+            { icon: MapPin, label: "Head Office @ Africa Avenue (Bole Road)",
+            link: "https://maps.app.goo.gl/S1fuc1fcXDhvv3Ly7",
+             },
+            { icon: Phone, label: "251 0116637716 / 17 / 18 / 19", link:"tel:+251116637716" },
+            { icon: Building2, label: "12941, Addis Ababa, Ethiopia", link: null },
+            { icon: Mail, label: "md@africainsurancesc.com", link: "mailto:md@africainsurancesc.com", },
+            // { icon: Youtube, label: "" },
+            // { icon: Twitter, label: ""},
+            // { icon: Linkedin, label: ""},
         ],
     },
 ];
@@ -62,16 +67,31 @@ function Footer() {
                             ))}
                         </SimpleGrid>
                     </Stack>
+                    
 
                     {/* Right Section */}
                     <Stack gap="xs" align="flex-start" w={{ base: "100%", md: "33%" }}>
                         <Title order={5} size="xl">Contact Address</Title>
-                        {data[1].links.map(({ icon: Icon, label }) => (
-                            <Group key={label} wrap="nowrap" align="center">
-                                <Icon size={30} />
-                                <Text size="xl">{label}</Text>
-                            </Group>
-                        ))}
+                        {data[1].links.map(({ icon: Icon, label, link }) => (
+  <Group key={label} wrap="nowrap" align="center">
+    <Icon size={30} />
+    {link ? (
+      <Text
+        size="xl"
+        component="a"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "white", textDecoration: "underline" }}
+      >
+        {label}
+      </Text>
+    ) : (
+      <Text size="xl">{label}</Text>
+    )}
+  </Group>
+))}
+
                     </Stack>
                 </Group>
 

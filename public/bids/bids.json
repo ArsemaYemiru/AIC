@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Stationary",
+      "content": "<p>We are thrilled to announce a looking for a professional stationary team in our company.</p>",
+      "requirements":"Has to have minimum 5 years of experience in stationary management, excellent communication skills, good equipment and a proven track record in organization.",
+      "location": "Head Office",
+      "salary": "Negotiable",
+      "applicationDeadline": "July 1st, 2025",
+      "apply": "link-to-application-form.com"
+
+    },
+    {
+      "id": 2,
+      "title": "Cafeteria",
+      "content": "<p>We are thrilled to announce a brand new opening in our company.</p>",
+      "requirements":"Has to have minimum 5 years of experience in cafeteria management, excellent management skills, good equipment and a proven track record in cleanliness.",
+      "location": "Head Office",
+      "salary": "Negotiable",
+      "applicationDeadline": "July 1st, 2025",
+      "apply": "link-to-application-form.com"
+    }
+  ]
+}
