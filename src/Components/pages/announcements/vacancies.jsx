@@ -69,15 +69,7 @@ const Vacancies = () => {
                 <h2 className="text-2xl font-bold text-[#343989] mb-4">
                   {post.title}
                 </h2>
-                <div className="text-gray-700 mb-4">
-                  <strong>Date:</strong>{" "}
-                  {new Date(post.date).toLocaleDateString("en-GB", {
-                    weekday: "long",
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric",
-                  })}
-                </div>
+                
 
                 <div className="text-gray-700 mb-4">
                   <strong>Location:</strong> {post.location}
@@ -88,7 +80,7 @@ const Vacancies = () => {
                   dangerouslySetInnerHTML={{ __html: post.content }}
                 />
                 <div className="text-gray-700 mb-4">
-                  <strong>Requierments:</strong> {post.requierments}
+                  <strong>Requirements:</strong> {post.requirements}
                 </div>
                 <div className="text-gray-700 mb-4">
                   <strong>Salary:</strong> {post.salary}

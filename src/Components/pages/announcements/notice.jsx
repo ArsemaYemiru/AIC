@@ -75,13 +75,7 @@ const Notice = () => {
                   {post.title}
                 </h2>
                 <div className="text-gray-700 mb-4">
-                  <strong>Date:</strong>{' '}
-                  {new Date(post.date).toLocaleDateString('en-GB', {
-                    weekday: 'long',
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                  })}
+                  <strong>Date:</strong> {post.date}
                 </div>
                 <div className="text-gray-700 mb-4">
                   <strong>Time:</strong> {post.time}
